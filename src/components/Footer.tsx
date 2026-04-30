@@ -56,7 +56,7 @@ export default function Footer() {
               fontFamily: '"Outfit", sans-serif',
               fontWeight: 300,
               fontSize: '14px',
-              color: `${WHITE}50`,
+              color: `${WHITE}75`,
               lineHeight: 1.7,
               maxWidth: '260px',
             }}>
@@ -85,13 +85,13 @@ export default function Footer() {
                   fontFamily: '"Outfit", sans-serif',
                   fontWeight: 400,
                   fontSize: '14px',
-                  color: `${WHITE}55`,
+                  color: `${WHITE}75`,
                   textDecoration: 'none',
                   transition: 'color 0.2s ease',
                   width: 'fit-content',
                 }}
                 onMouseEnter={e => (e.currentTarget.style.color = WHITE)}
-                onMouseLeave={e => (e.currentTarget.style.color = `${WHITE}55`)}
+                onMouseLeave={e => (e.currentTarget.style.color = `${WHITE}75`)}
               >
                 {l.label}
               </a>
@@ -121,13 +121,13 @@ export default function Footer() {
                   fontFamily: '"Outfit", sans-serif',
                   fontWeight: 400,
                   fontSize: '14px',
-                  color: `${WHITE}55`,
+                  color: `${WHITE}75`,
                   textDecoration: 'none',
                   transition: 'color 0.2s ease',
                   width: 'fit-content',
                 }}
                 onMouseEnter={e => (e.currentTarget.style.color = WHITE)}
-                onMouseLeave={e => (e.currentTarget.style.color = `${WHITE}55`)}
+                onMouseLeave={e => (e.currentTarget.style.color = `${WHITE}75`)}
               >
                 {l.label} ↗
               </a>
@@ -145,7 +145,7 @@ export default function Footer() {
                 width: 'fit-content',
               }}
               onMouseEnter={e => (e.currentTarget.style.color = WHITE)}
-              onMouseLeave={e => (e.currentTarget.style.color = `${WHITE}55`)}
+              onMouseLeave={e => (e.currentTarget.style.color = `${WHITE}75`)}
             >
               contact@prodyous.com
             </a>
@@ -166,7 +166,7 @@ export default function Footer() {
             fontFamily: '"Outfit", sans-serif',
             fontWeight: 300,
             fontSize: '12px',
-            color: `${WHITE}25`,
+            color: `${WHITE}50`,
             letterSpacing: '0.08em',
           }}>
             © 2026 Youssef Tayibi · ProdYous Visual Production Agency · Morocco · All Rights Reserved
@@ -175,7 +175,7 @@ export default function Footer() {
             fontFamily: '"Outfit", sans-serif',
             fontWeight: 300,
             fontSize: '12px',
-            color: `${WHITE}20`,
+            color: `${WHITE}45`,
             letterSpacing: '0.06em',
           }}>
             Filmmaking · Photography · Visual Production

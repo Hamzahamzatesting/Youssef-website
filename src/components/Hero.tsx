@@ -89,7 +89,7 @@ export default function Hero() {
           >
             Helping<br />
             creatives<br />
-            <span style={{ color: `${WHITE}60` }}>stand out.</span>
+            <span style={{ color: `${WHITE}85` }}>stand out.</span>
           </motion.h1>
 
           <motion.p
@@ -101,7 +101,7 @@ export default function Hero() {
               fontWeight: 300,
               fontSize: '15px',
               lineHeight: 1.7,
-              color: `${WHITE}70`,
+              color: `${WHITE}90`,
               maxWidth: '420px',
               marginBottom: '48px',
             }}
@@ -174,7 +174,7 @@ export default function Hero() {
             ].map(s => (
               <div key={s.label}>
                 <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 700, fontSize: '28px', color: WHITE, letterSpacing: '-0.02em', lineHeight: 1 }}>{s.label}</p>
-                <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${WHITE}50`, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '6px' }}>{s.sub}</p>
+                <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${WHITE}70`, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '6px' }}>{s.sub}</p>
               </div>
             ))}
           </motion.div>
@@ -265,7 +265,7 @@ export default function Hero() {
             />
             <div>
               <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 700, fontSize: '13px', color: NAVY, lineHeight: 1 }}>@youssef_tayibi</p>
-              <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${NAVY}60`, marginTop: '3px', letterSpacing: '0.06em' }}>Instagram</p>
+              <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${NAVY}80`, marginTop: '3px', letterSpacing: '0.06em' }}>Instagram</p>
             </div>
           </div>
 

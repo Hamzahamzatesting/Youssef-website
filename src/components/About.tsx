@@ -74,7 +74,7 @@ export default function About() {
               backgroundColor: NAVY,
               padding: '16px 20px',
             }}>
-              <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${WHITE}60`, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${WHITE}80`, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 Morocco
               </p>
               <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 700, fontSize: '18px', color: WHITE, letterSpacing: '-0.01em', marginTop: '4px' }}>
@@ -97,7 +97,7 @@ export default function About() {
               fontWeight: 400,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: `${NAVY}50`,
+              color: `${NAVY}70`,
               marginBottom: '20px',
             }}>
               Our Story
@@ -121,7 +121,7 @@ export default function About() {
                 fontWeight: 300,
                 fontSize: '15px',
                 lineHeight: 1.75,
-                color: `${NAVY}70`,
+                color: `${NAVY}85`,
               }}>
                 Youssef Tayibi is a filmmaker and photographer based in Morocco, and the founder of ProdYous Visual Production Agency.
                 With a sharp editorial eye and a cinematic approach, he helps brands, creatives, and individuals stand out in a saturated visual landscape.
@@ -145,7 +145,7 @@ export default function About() {
                 fontSize: '12px',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                color: `${NAVY}40`,
+                color: `${NAVY}65`,
                 marginBottom: '16px',
               }}>
                 Specialties
@@ -162,7 +162,7 @@ export default function About() {
                       padding: '8px 14px',
                     }}
                   >
-                    <span style={{ fontFamily: '"Outfit", sans-serif', fontSize: '13px', color: `${NAVY}70` }}>{h.label}</span>
+                    <span style={{ fontFamily: '"Outfit", sans-serif', fontSize: '13px', color: `${NAVY}85` }}>{h.label}</span>
                     <span style={{ fontFamily: '"Syne", sans-serif', fontSize: '11px', fontWeight: 700, color: NAVY }}>{h.count}</span>
                   </div>
                 ))}
@@ -171,9 +171,7 @@ export default function About() {
 
             <div style={{ display: 'flex', gap: '32px' }}>
               <a
-                href="https://www.instagram.com/youssef_tayibi/"
-                target="_blank"
-                rel="noreferrer"
+                href="#contact"
                 style={{
                   fontFamily: '"Outfit", sans-serif',
                   fontSize: '12px',
@@ -186,25 +184,23 @@ export default function About() {
                   paddingBottom: '4px',
                 }}
               >
-                @youssef_tayibi ↗
+                Start a Project →
               </a>
               <a
-                href="https://www.instagram.com/prodyous.ma/"
-                target="_blank"
-                rel="noreferrer"
+                href="#work"
                 style={{
                   fontFamily: '"Outfit", sans-serif',
                   fontSize: '12px',
                   fontWeight: 400,
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
-                  color: `${NAVY}50`,
+                  color: `${NAVY}70`,
                   textDecoration: 'none',
                   borderBottom: `1px solid ${NAVY}30`,
                   paddingBottom: '4px',
                 }}
               >
-                @prodyous.ma ↗
+                View Work →
               </a>
             </div>
           </motion.div>

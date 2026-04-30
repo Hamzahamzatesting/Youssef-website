@@ -104,7 +104,7 @@ export default function Contact() {
             fontFamily: '"Outfit", sans-serif',
             fontWeight: 300,
             fontSize: '15px',
-            color: `${WHITE}55`,
+            color: `${WHITE}80`,
             marginTop: '24px',
             maxWidth: '480px',
             lineHeight: 1.7,
@@ -126,7 +126,7 @@ export default function Contact() {
             <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 700, fontSize: '28px', color: WHITE, letterSpacing: '-0.02em', marginBottom: '12px' }}>
               Message sent.
             </p>
-            <p style={{ fontFamily: '"Outfit", sans-serif', fontWeight: 300, fontSize: '15px', color: `${WHITE}60` }}>
+            <p style={{ fontFamily: '"Outfit", sans-serif', fontWeight: 300, fontSize: '15px', color: `${WHITE}80` }}>
               We'll be in touch shortly at {form.email}
             </p>
           </motion.div>
@@ -252,7 +252,7 @@ export default function Contact() {
           </motion.form>
         )}
 
-        {/* Instagram links */}
+        {/* Instagram handles — display only, no external link */}
         <div style={{
           marginTop: '80px',
           paddingTop: '48px',
@@ -262,28 +262,24 @@ export default function Contact() {
           flexWrap: 'wrap' as const,
         }}>
           {[
-            { handle: '@youssef_tayibi', url: 'https://www.instagram.com/youssef_tayibi/', desc: 'Personal' },
-            { handle: '@prodyous.ma', url: 'https://www.instagram.com/prodyous.ma/', desc: 'Agency' },
+            { handle: '@youssef_tayibi', desc: 'Personal' },
+            { handle: '@prodyous.ma', desc: 'Agency' },
           ].map(ig => (
-            <a
+            <div
               key={ig.handle}
-              href={ig.url}
-              target="_blank"
-              rel="noreferrer"
               style={{
                 display: 'flex',
                 flexDirection: 'column' as const,
                 gap: '4px',
-                textDecoration: 'none',
               }}
             >
               <span style={{ fontFamily: '"Syne", sans-serif', fontWeight: 700, fontSize: '16px', color: WHITE, letterSpacing: '-0.01em' }}>
                 {ig.handle}
               </span>
-              <span style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${WHITE}40`, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              <span style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${WHITE}65`, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 Instagram · {ig.desc}
               </span>
-            </a>
+            </div>
           ))}
         </div>
       </div>

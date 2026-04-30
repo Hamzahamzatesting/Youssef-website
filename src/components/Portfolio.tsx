@@ -37,10 +37,10 @@ function WorkCard({ work, index, onOpen }: WorkCardProps) {
   const [hovered, setHovered] = useState(false);
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.55, delay: (index % 4) * 0.06 }}
+      viewport={{ once: true, margin: '-20px' }}
+      transition={{ duration: 0.3, delay: (index % 4) * 0.04 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={() => onOpen(work)}
@@ -95,7 +95,6 @@ function WorkCard({ work, index, onOpen }: WorkCardProps) {
 }
 
 function Lightbox({ work, onClose }: { work: Work; onClose: () => void }) {
-  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
@@ -103,75 +102,71 @@ function Lightbox({ work, onClose }: { work: Work; onClose: () => void }) {
     return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = ''; };
   }, [onClose]);
 
-  const embedSrc = `https://www.instagram.com/${work.isReel ? 'reel' : 'p'}/${work.embedCode}/embed/`;
+  const embedSrc = `https://www.instagram.com/reel/${work.embedCode}/embed/`;
 
   return (
     <motion.div
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
       onClick={onClose}
-      style={{ position: 'fixed', inset: 0, backgroundColor: `${NAVY}F4`, zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', backdropFilter: 'blur(10px)' }}
+      style={{
+        position: 'fixed', inset: 0, backgroundColor: `${NAVY}F8`, zIndex: 1000,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: '60px 20px 20px', backdropFilter: 'blur(12px)', overflowY: 'auto',
+      }}
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 14 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
         onClick={e => e.stopPropagation()}
-        style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', maxWidth: '900px', width: '100%' }}
-        className="lightbox-inner"
+        style={{ display: 'flex', flexDirection: 'column' as const, alignItems: 'center', width: '100%', maxWidth: '420px' }}
       >
-        {/* Embed */}
-        <div style={{ flex: '0 0 400px', position: 'relative', background: `${NAVY}60` }} className="lightbox-embed">
-          {!loaded && (
-            <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column' as const, alignItems: 'center', justifyContent: 'center', minHeight: '500px' }}>
-              <div style={{ fontSize: '28px', color: WHITE, marginBottom: '10px' }}>▶</div>
-              <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '13px', color: `${WHITE}60` }}>Loading…</p>
-            </div>
-          )}
-          <iframe
-            src={embedSrc}
-            width="100%"
-            height="560"
-            frameBorder={0}
-            scrolling="no"
-            allowTransparency={true}
-            allow="encrypted-media; autoplay"
-            style={{ display: 'block', border: 'none', minHeight: '500px' }}
-            onLoad={() => setLoaded(true)}
-            title={work.title}
-          />
-        </div>
+        {/* Media */}
+        {work.isReel ? (
+          <div style={{ width: '100%', height: '580px', overflow: 'hidden', position: 'relative' }}>
+            <iframe
+              src={embedSrc}
+              style={{ width: '100%', height: '720px', border: 'none', display: 'block', marginTop: '-68px' }}
+              frameBorder={0}
+              scrolling="no"
+              allowTransparency={true}
+              allow="encrypted-media; autoplay"
+              title={work.title}
+            />
+            {/* gradient fade covers the "Watch on Instagram" label at the bottom */}
+            <div style={{
+              position: 'absolute', bottom: 0, left: 0, right: 0, height: '60px',
+              background: `linear-gradient(transparent, ${NAVY})`,
+              pointerEvents: 'none',
+            }} />
+          </div>
+        ) : (
+          <img src={work.src} alt={work.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
+        )}
 
-        {/* Info panel */}
-        <div style={{ flex: 1, paddingTop: '8px', minWidth: 0 }} className="lightbox-info">
-          <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${WHITE}55`, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '10px' }}>
+        {/* Info strip */}
+        <div style={{ width: '100%', backgroundColor: NAVY, padding: '24px 28px', borderTop: `1px solid ${WHITE}15` }}>
+          <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: `${WHITE}65`, marginBottom: '8px' }}>
             {work.category} · @{work.account === 'youssef' ? 'youssef_tayibi' : 'prodyous.ma'}
           </p>
-          <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 800, fontSize: '28px', color: WHITE, letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '16px' }}>
+          <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 800, fontSize: '22px', color: WHITE, letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '10px' }}>
             {work.title}
           </p>
-          <p style={{ fontFamily: '"Outfit", sans-serif', fontWeight: 300, fontSize: '15px', color: `${WHITE}85`, lineHeight: 1.7, marginBottom: '32px' }}>
+          <p style={{ fontFamily: '"Outfit", sans-serif', fontWeight: 300, fontSize: '14px', color: `${WHITE}85`, lineHeight: 1.65 }}>
             {work.caption}
           </p>
-          <div style={{ paddingTop: '24px', borderTop: `1px solid ${WHITE}15` }}>
-            <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '12px', color: `${WHITE}45`, letterSpacing: '0.08em' }}>
-              {work.isReel ? '▶ Video Reel' : '◼ Photo'} — ProdYous Visual Production
-            </p>
-          </div>
         </div>
       </motion.div>
 
       <button
         onClick={onClose}
-        style={{ position: 'fixed', top: '20px', right: '20px', background: 'none', border: `1px solid ${WHITE}35`, color: WHITE, width: '44px', height: '44px', cursor: 'pointer', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        style={{
+          position: 'fixed', top: '20px', right: '20px', background: 'none',
+          border: `1px solid ${WHITE}35`, color: WHITE, width: '44px', height: '44px',
+          cursor: 'pointer', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}
         aria-label="Close"
       >✕</button>
-
-      <style>{`
-        @media (max-width: 700px) {
-          .lightbox-inner { flex-direction: column !important; }
-          .lightbox-embed { flex: none !important; width: 100% !important; }
-        }
-      `}</style>
     </motion.div>
   );
 }
@@ -237,13 +232,13 @@ export default function Portfolio() {
           </div>
 
           {/* Masonry grid */}
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="sync">
             <motion.div
               key={filter}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
+              transition={{ duration: 0.15 }}
               className="portfolio-masonry"
               style={{ columns: 4, columnGap: '3px' }}
             >
