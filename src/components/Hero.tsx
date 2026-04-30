@@ -21,6 +21,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      className="hero-section"
       style={{
         minHeight: '100vh',
         backgroundColor: NAVY,
@@ -165,6 +166,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
+            className="hero-stats"
             style={{ marginTop: '64px', display: 'flex', gap: '32px' }}
           >
             {[
@@ -185,6 +187,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
+          className="hero-visual"
           style={{ position: 'relative', height: 'clamp(480px, 70vh, 720px)' }}
         >
           {/* Large portrait */}
@@ -257,7 +260,9 @@ export default function Hero() {
             alignItems: 'center',
             gap: '12px',
             zIndex: 2,
-          }}>
+          }}
+          className="hero-profile-badge"
+          >
             <img
               src="/assets/images/youssef-profile.jpg"
               alt="Youssef Tayibi"
@@ -278,7 +283,9 @@ export default function Hero() {
             border: `1px solid ${WHITE}20`,
             padding: '10px 16px',
             zIndex: 2,
-          }}>
+          }}
+          className="hero-agency-tag"
+          >
             <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: WHITE, letterSpacing: '0.12em', textTransform: 'uppercase' }}>@prodyous.ma</p>
           </div>
         </motion.div>
@@ -306,8 +313,32 @@ export default function Hero() {
 
       <style>{`
         @media (max-width: 768px) {
+          .hero-section {
+            min-height: auto !important;
+            padding-top: 80px !important;
+          }
           .hero-grid {
             grid-template-columns: 1fr !important;
+            gap: 48px !important;
+            padding-top: 88px !important;
+            padding-bottom: 88px !important;
+          }
+          .hero-stats {
+            margin-top: 52px !important;
+            gap: 26px !important;
+          }
+          .hero-visual {
+            height: 440px !important;
+            max-width: 360px;
+            margin: 0 auto;
+            width: 100%;
+          }
+          .hero-profile-badge {
+            right: 0 !important;
+            max-width: calc(100vw - 52px);
+          }
+          .hero-agency-tag {
+            left: 24% !important;
           }
         }
       `}</style>

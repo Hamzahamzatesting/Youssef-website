@@ -6,27 +6,27 @@ const WHITE = '#FFFFFF';
 
 const works = [
   // ── @youssef_tayibi ────────────────────────────────────────────────
-  { src: '/assets/images/work-1.jpg',    title: 'Le Jour J',           category: 'Wedding Film',     caption: "Le jour J, concentre-toi sur l'essentiel. On s'occupe du reste.",                        embedCode: 'DWRz-_Pjn-l',  isReel: true,  account: 'youssef' },
-  { src: '/assets/images/work-2.jpg',    title: 'Ce Regard',           category: 'Graduation Film',  caption: 'Ce regard. Cette fierté. 🤍 Avant de défendre son travail…',                             embedCode: 'DWWzi6WCASF',  isReel: true,  account: 'youssef' },
-  { src: '/assets/images/work-3.jpg',    title: 'Partager Ensemble',   category: 'Personal',         caption: 'Partager m3a li katmna lih had nhar 🔥 Crédit : @prodyous.ma',                          embedCode: 'DXceayMNxHc',  isReel: true,  account: 'youssef' },
-  { src: '/assets/images/work-4.jpg',    title: 'GITEX Morocco',       category: 'Corporate Event',  caption: "GITEX Morocco. Plus qu'un event… une vraie énergie.",                                    embedCode: 'DW4JEavMYRQ',  isReel: true,  account: 'youssef' },
-  { src: '/assets/images/work-5.jpg',    title: 'Behind The Frame',    category: 'BTS',              caption: 'Derrière chaque rendu, il y a des choix, des tests… et une vision.',                    embedCode: 'DWrdHJFjr7D',  isReel: true,  account: 'youssef' },
-  { src: '/assets/images/work-6.jpg',    title: 'Rien Au Hasard',      category: 'Film Direction',   caption: "Rien n'est laissé au hasard. De la préparation au rendu final.",                        embedCode: 'DWg_Ko6tdRA',  isReel: true,  account: 'youssef' },
-  { src: '/assets/images/work-7.jpg',    title: 'Le Moment Décisif',   category: 'Wedding Film',     caption: "Le jour où tout se joue… ce n'est pas le moment d'improviser.",                        embedCode: 'DWKAcZ-N_bo',  isReel: true,  account: 'youssef' },
-  { src: '/assets/images/work-8.jpg',    title: 'AZ Atelier',          category: 'Product Film',     caption: 'Chez AZ Atelier, chaque pastilla suit un processus précis.',                           embedCode: 'DUGwWodjeqc',  isReel: true,  account: 'youssef' },
-  { src: '/assets/images/work-9.jpg',    title: 'Des Moments',         category: 'Event Coverage',   caption: 'Des moments qui comptent, des souvenirs pour toujours.',                               embedCode: 'DSsAHN1DIQ2',  isReel: true,  account: 'youssef' },
-  { src: '/assets/images/work-10.jpg',   title: 'We Came To Create',   category: 'Creative Film',    caption: "We didn't come here to change the past. We came because we care.",                      embedCode: 'DSYMc6CDGzx',  isReel: true,  account: 'youssef' },
-  { src: '/assets/images/work-11.jpg',   title: '100+ Soutenances',    category: 'Graduation Film',  caption: 'Hamdoulilah… plus de 100 soutenances filmées, et chaque fois unique.',                  embedCode: 'DRuc-2bjCUx',  isReel: true,  account: 'youssef' },
-  { src: '/assets/images/work-12.jpg',   title: 'Produce With Youss',  category: 'Agency Promo',     caption: '🎬 Produce with Youss. From concept to screen — we craft visuals that speak.',          embedCode: 'DRVI1nqjCGW',  isReel: true,  account: 'youssef' },
+  { src: '/assets/images/work-1.jpg',    instagramUrl: 'https://www.instagram.com/reel/DWRz-_Pjn-l/', title: 'Le Jour J',           category: 'Wedding Film',     caption: "Le jour J, concentre-toi sur l'essentiel. On s'occupe du reste.",               isReel: true,  account: 'youssef' },
+  { src: '/assets/images/work-2.jpg',    instagramUrl: 'https://www.instagram.com/reel/DWWzi6WCASF/', title: 'Ce Regard',           category: 'Graduation Film',  caption: 'Ce regard. Cette fierté. 🤍 Avant de défendre son travail…',                    isReel: true,  account: 'youssef' },
+  { src: '/assets/images/work-3.jpg',    instagramUrl: 'https://www.instagram.com/reel/DXceayMNxHc/', title: 'Partager Ensemble',   category: 'Personal',         caption: 'Partager m3a li katmna lih had nhar 🔥 Crédit : @prodyous.ma',                 isReel: true,  account: 'youssef' },
+  { src: '/assets/images/work-4.jpg',    instagramUrl: 'https://www.instagram.com/reel/DW4JEavMYRQ/', title: 'GITEX Morocco',       category: 'Corporate Event',  caption: "GITEX Morocco. Plus qu'un event… une vraie énergie.",                           isReel: true,  account: 'youssef' },
+  { src: '/assets/images/work-5.jpg',    instagramUrl: 'https://www.instagram.com/reel/DWrdHJFjr7D/', title: 'Behind The Frame',    category: 'BTS',              caption: 'Derrière chaque rendu, il y a des choix, des tests… et une vision.',           isReel: true,  account: 'youssef' },
+  { src: '/assets/images/work-6.jpg',    instagramUrl: 'https://www.instagram.com/reel/DWg_Ko6tdRA/', title: 'Rien Au Hasard',      category: 'Film Direction',   caption: "Rien n'est laissé au hasard. De la préparation au rendu final.",               isReel: true,  account: 'youssef' },
+  { src: '/assets/images/work-7.jpg',    instagramUrl: 'https://www.instagram.com/reel/DWKAcZ-N_bo/', title: 'Le Moment Décisif',   category: 'Wedding Film',     caption: "Le jour où tout se joue… ce n'est pas le moment d'improviser.",               isReel: true,  account: 'youssef' },
+  { src: '/assets/images/work-8.jpg',    instagramUrl: 'https://www.instagram.com/reel/DUGwWodjeqc/', title: 'AZ Atelier',          category: 'Product Film',     caption: 'Chez AZ Atelier, chaque pastilla suit un processus précis.',                  isReel: true,  account: 'youssef' },
+  { src: '/assets/images/work-9.jpg',    instagramUrl: 'https://www.instagram.com/reel/DSsAHN1DIQ2/', title: 'Des Moments',         category: 'Event Coverage',   caption: 'Des moments qui comptent, des souvenirs pour toujours.',                      isReel: true,  account: 'youssef' },
+  { src: '/assets/images/work-10.jpg',   instagramUrl: 'https://www.instagram.com/reel/DSYMc6CDGzx/', title: 'We Came To Create',   category: 'Creative Film',    caption: "We didn't come here to change the past. We came because we care.",             isReel: true,  account: 'youssef' },
+  { src: '/assets/images/work-11.jpg',   instagramUrl: 'https://www.instagram.com/reel/DRuc-2bjCUx/', title: '100+ Soutenances',    category: 'Graduation Film',  caption: 'Hamdoulilah… plus de 100 soutenances filmées, et chaque fois unique.',         isReel: true,  account: 'youssef' },
+  { src: '/assets/images/work-12.jpg',   instagramUrl: 'https://www.instagram.com/reel/DRVI1nqjCGW/', title: 'Produce With Youss',  category: 'Agency Promo',     caption: '🎬 Produce with Youss. From concept to screen — we craft visuals that speak.', isReel: true,  account: 'youssef' },
   // ── @prodyous.ma (unique content) ─────────────────────────────────
-  { src: '/assets/images/agency-3.jpg',  title: "L'Impact",            category: 'Cinematic',        caption: "L'impact ne s'improvise pas. Sa portée non plus.",                                       embedCode: 'DV93GDyiDhx',  isReel: true,  account: 'prodyous' },
-  { src: '/assets/images/agency-7.jpg',  title: 'Brand Energy',        category: 'Commercial',       caption: 'Derrière chaque marque, il y a une énergie. Une personnalité.',                        embedCode: 'DVwzEuPiCrc',  isReel: true,  account: 'prodyous' },
-  { src: '/assets/images/agency-1.jpg',  title: 'La Recherche',        category: 'Documentary',      caption: 'La recherche commence souvent loin des salles de conférence.',                         embedCode: 'DWAaPTFCG6m',  isReel: false, account: 'prodyous' },
-  { src: '/assets/images/agency-2.jpg',  title: "L'Expertise",         category: 'Corporate',        caption: "L'expertise ne s'improvise pas. Son image non plus.",                                   embedCode: 'DVmnbl-CFzQ',  isReel: false, account: 'prodyous' },
-  { src: '/assets/images/agency-4.jpg',  title: 'Avant La Caméra',     category: 'BTS',              caption: 'Chaque projet commence avant la caméra. Dans la réflexion.',                           embedCode: 'DVw6Pm3CHDt',  isReel: false, account: 'prodyous' },
-  { src: '/assets/images/agency-5.jpg',  title: 'Certaines Marques',   category: 'Brand Identity',   caption: "Certaines marques ne cherchent pas simplement à communiquer.",                          embedCode: 'DVw6DZKCNwQ',  isReel: false, account: 'prodyous' },
-  { src: '/assets/images/agency-6.jpg',  title: 'Congrès & Conférence', category: 'Medical Event',   caption: 'Un congrès, une conférence, une démonstration médicale — ne so pas laissés au hasard.', embedCode: 'DVmn1p8CJZ0',  isReel: false, account: 'prodyous' },
-  { src: '/assets/images/agency-8.jpg',  title: 'Avant Les Résultats', category: 'Vision',           caption: "Avant les résultats, il y a une vision. Avant l'impact, il y a une direction.",        embedCode: 'DV6L2GriMB4',  isReel: false, account: 'prodyous' },
+  { src: '/assets/images/agency-3.jpg',  instagramUrl: 'https://www.instagram.com/reel/DV93GDyiDhx/', title: "L'Impact",            category: 'Cinematic',        caption: "L'impact ne s'improvise pas. Sa portée non plus.",                                      isReel: true,  account: 'prodyous' },
+  { src: '/assets/images/agency-7.jpg',  instagramUrl: 'https://www.instagram.com/reel/DVwzEuPiCrc/', title: 'Brand Energy',        category: 'Commercial',       caption: 'Derrière chaque marque, il y a une énergie. Une personnalité.',                       isReel: true,  account: 'prodyous' },
+  { src: '/assets/images/agency-1.jpg',  title: 'La Recherche',        category: 'Documentary',      caption: 'La recherche commence souvent loin des salles de conférence.',                         isReel: false, account: 'prodyous' },
+  { src: '/assets/images/agency-2.jpg',  title: "L'Expertise",         category: 'Corporate',        caption: "L'expertise ne s'improvise pas. Son image non plus.",                                   isReel: false, account: 'prodyous' },
+  { src: '/assets/images/agency-4.jpg',  title: 'Avant La Caméra',     category: 'BTS',              caption: 'Chaque projet commence avant la caméra. Dans la réflexion.',                           isReel: false, account: 'prodyous' },
+  { src: '/assets/images/agency-5.jpg',  title: 'Certaines Marques',   category: 'Brand Identity',   caption: "Certaines marques ne cherchent pas simplement à communiquer.",                          isReel: false, account: 'prodyous' },
+  { src: '/assets/images/agency-6.jpg',  title: 'Congrès & Conférence', category: 'Medical Event',   caption: 'Un congrès, une conférence, une démonstration médicale — ne sont pas laissés au hasard.', isReel: false, account: 'prodyous' },
+  { src: '/assets/images/agency-8.jpg',  title: 'Avant Les Résultats', category: 'Vision',           caption: "Avant les résultats, il y a une vision. Avant l'impact, il y a une direction.",          isReel: false, account: 'prodyous' },
 ];
 
 type Work = typeof works[0];
@@ -35,6 +35,14 @@ interface WorkCardProps { work: Work; index: number; onOpen: (w: Work) => void; 
 
 function WorkCard({ work, index, onOpen }: WorkCardProps) {
   const [hovered, setHovered] = useState(false);
+  const handleClick = () => {
+    if (work.isReel && work.instagramUrl) {
+      window.open(work.instagramUrl, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    onOpen(work);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -43,7 +51,7 @@ function WorkCard({ work, index, onOpen }: WorkCardProps) {
       transition={{ duration: 0.3, delay: (index % 4) * 0.04 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={() => onOpen(work)}
+      onClick={handleClick}
       style={{ position: 'relative', overflow: 'hidden', cursor: 'pointer', breakInside: 'avoid', marginBottom: '3px', display: 'block' }}
     >
       <img
@@ -102,47 +110,55 @@ function Lightbox({ work, onClose }: { work: Work; onClose: () => void }) {
     return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = ''; };
   }, [onClose]);
 
-  const embedSrc = `https://www.instagram.com/reel/${work.embedCode}/embed/`;
-
   return (
     <motion.div
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
       onClick={onClose}
       style={{
         position: 'fixed', inset: 0, backgroundColor: `${NAVY}F8`, zIndex: 1000,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
         padding: '60px 20px 20px', backdropFilter: 'blur(12px)', overflowY: 'auto',
       }}
-    >
+      >
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 14 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
         onClick={e => e.stopPropagation()}
-        style={{ display: 'flex', flexDirection: 'column' as const, alignItems: 'center', width: '100%', maxWidth: '420px' }}
+        className="lightbox-panel lightbox-panel-photo"
+        style={{
+          display: 'flex',
+          flexDirection: 'column' as const,
+          alignItems: 'center',
+          width: '100%',
+          maxWidth: 'min(1120px, calc(100vw - 40px))',
+        }}
       >
         {/* Media */}
-        {work.isReel ? (
-          <div style={{ width: '100%', height: '580px', overflow: 'hidden', position: 'relative' }}>
-            <iframe
-              src={embedSrc}
-              style={{ width: '100%', height: '720px', border: 'none', display: 'block', marginTop: '-68px' }}
-              frameBorder={0}
-              scrolling="no"
-              allowTransparency={true}
-              allow="encrypted-media; autoplay"
-              title={work.title}
-            />
-            {/* gradient fade covers the "Watch on Instagram" label at the bottom */}
-            <div style={{
-              position: 'absolute', bottom: 0, left: 0, right: 0, height: '60px',
-              background: `linear-gradient(transparent, ${NAVY})`,
-              pointerEvents: 'none',
-            }} />
-          </div>
-        ) : (
-          <img src={work.src} alt={work.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
-        )}
+        <div
+          className="lightbox-photo-frame"
+          style={{
+            width: '100%',
+            maxHeight: 'calc(100vh - 230px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: `${NAVY}35`,
+            overflow: 'hidden',
+          }}
+        >
+          <img
+            src={work.src}
+            alt={work.title}
+            style={{
+              width: 'auto',
+              height: 'auto',
+              maxWidth: '100%',
+              maxHeight: 'calc(100vh - 230px)',
+              display: 'block',
+            }}
+          />
+        </div>
 
         {/* Info strip */}
         <div style={{ width: '100%', backgroundColor: NAVY, padding: '24px 28px', borderTop: `1px solid ${WHITE}15` }}>
@@ -227,7 +243,7 @@ export default function Portfolio() {
               </button>
             ))}
             <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '12px', color: `${NAVY}45`, display: 'flex', alignItems: 'center', marginLeft: '16px' }}>
-              Click any card to play ▶
+              Open any card
             </p>
           </div>
 
@@ -266,6 +282,16 @@ export default function Portfolio() {
           @media (max-width: 1024px) { .portfolio-masonry { columns: 3 !important; } }
           @media (max-width: 700px)  { .portfolio-masonry { columns: 2 !important; } }
           @media (max-width: 420px)  { .portfolio-masonry { columns: 1 !important; } }
+          @media (max-width: 520px)  {
+            .lightbox-panel {
+              max-width: calc(100vw - 24px) !important;
+            }
+            .lightbox-photo-frame,
+            .lightbox-photo-frame img {
+              max-height: calc(100vh - 260px) !important;
+              max-width: 100% !important;
+            }
+          }
           button:hover { opacity: 0.85; }
         `}</style>
       </section>
