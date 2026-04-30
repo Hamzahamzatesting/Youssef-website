@@ -1,112 +1,189 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Instagram, Send } from 'lucide-react';
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const NAVY = '#1B1F6B';
+const WHITE = '#FFFFFF';
+
+const navLinks = [
+  { name: 'Work', href: '#work' },
+  { name: 'Services', href: '#services' },
+  { name: 'About', href: '#about' },
+  { name: 'Contact', href: '#contact' },
+];
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Work', href: '#work' },
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
   return (
-    <nav 
-      id="main-nav"
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-brand-bg/90 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-8'
-      }`}
-    >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" id="logo" className="group flex flex-col">
-          <span className="serif text-2xl tracking-tighter text-brand-text group-hover:text-gold transition-colors duration-300">
-            PROD<span className="italic">YOUS</span>
-          </span>
-          <span className="text-[10px] uppercase tracking-[0.3em] opacity-50 -mt-1 block">Studio Rabat</span>
-        </a>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-12">
-          {navLinks.map((link) => (
-            <a 
-              key={link.name}
-              href={link.href}
-              className="text-xs uppercase tracking-widest text-brand-text/70 hover:text-brand-gold transition-colors duration-300"
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="hidden md:block">
-          <a 
-            href="#contact"
-            className="px-6 py-2.5 text-[10px] uppercase tracking-widest bg-brand-gold text-brand-bg hover:bg-brand-text transition-colors duration-300 font-bold"
-          >
-            Book a Session
+    <>
+      <nav
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          zIndex: 100,
+          backgroundColor: scrolled ? WHITE : 'transparent',
+          borderBottom: scrolled ? `1px solid ${NAVY}18` : 'none',
+          transition: 'background-color 0.4s ease',
+          backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        }}
+      >
+        <div style={{
+          maxWidth: '1400px',
+          margin: '0 auto',
+          padding: '0 clamp(20px, 4vw, 60px)',
+          height: '80px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+            <img
+              src="/assets/images/logo.jpg"
+              alt="ProdYous"
+              style={{
+                width: '38px',
+                height: '38px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                border: `2px solid ${scrolled ? NAVY : WHITE}40`,
+                transition: 'border-color 0.4s ease',
+              }}
+            />
+            <span style={{
+              fontFamily: '"Syne", sans-serif',
+              fontWeight: 800,
+              fontSize: '16px',
+              color: scrolled ? NAVY : WHITE,
+              letterSpacing: '0.05em',
+              transition: 'color 0.4s ease',
+            }}>
+              PRODYOUS
+            </span>
           </a>
+
+          <div id="desk-nav" style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
+            {navLinks.map(link => (
+              <a
+                key={link.name}
+                href={link.href}
+                style={{
+                  fontFamily: '"Outfit", sans-serif',
+                  fontWeight: 400,
+                  fontSize: '13px',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase' as const,
+                  color: scrolled ? NAVY : WHITE,
+                  textDecoration: 'none',
+                  opacity: 0.75,
+                  transition: 'opacity 0.2s ease, color 0.4s ease',
+                }}
+                onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
+                onMouseLeave={e => (e.currentTarget.style.opacity = '0.75')}
+              >
+                {link.name}
+              </a>
+            ))}
+            <a
+              href="mailto:contact@prodyous.com"
+              style={{
+                fontFamily: '"Outfit", sans-serif',
+                fontWeight: 400,
+                fontSize: '12px',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase' as const,
+                color: scrolled ? WHITE : NAVY,
+                backgroundColor: scrolled ? NAVY : WHITE,
+                padding: '11px 24px',
+                textDecoration: 'none',
+                transition: 'all 0.3s ease',
+              }}
+            >
+              Start a Project
+            </a>
+          </div>
+
+          <button
+            id="ham-btn"
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'none',
+              flexDirection: 'column' as const,
+              gap: '5px',
+              padding: '6px',
+            }}
+            aria-label="Toggle menu"
+          >
+            {[0, 1, 2].map(i => (
+              <span key={i} style={{
+                display: 'block',
+                width: '22px',
+                height: '1.5px',
+                backgroundColor: scrolled ? NAVY : WHITE,
+                transition: 'all 0.3s ease',
+                transform:
+                  menuOpen && i === 0 ? 'rotate(45deg) translate(4.5px, 4.5px)' :
+                  menuOpen && i === 1 ? 'scaleX(0)' :
+                  menuOpen && i === 2 ? 'rotate(-45deg) translate(4.5px, -4.5px)' : 'none',
+              }} />
+            ))}
+          </button>
         </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          id="mobile-toggle"
-          className="md:hidden text-brand-text"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <div className="w-6 h-5 flex flex-col justify-between">
-            <span className={`h-[1px] bg-current transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`h-[1px] bg-current transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
-            <span className={`h-[1px] bg-current transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-          </div>
-        </button>
-      </div>
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              style={{ backgroundColor: NAVY, overflow: 'hidden' }}
+            >
+              <div style={{ padding: '48px clamp(20px,4vw,60px)', display: 'flex', flexDirection: 'column' as const, gap: '28px' }}>
+                {navLinks.map(link => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    style={{
+                      fontFamily: '"Syne", sans-serif',
+                      fontWeight: 700,
+                      fontSize: 'clamp(32px, 8vw, 48px)',
+                      color: WHITE,
+                      textDecoration: 'none',
+                      letterSpacing: '-0.02em',
+                    }}
+                  >
+                    {link.name}
+                  </a>
+                ))}
+                <div style={{ marginTop: '16px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
+                  <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '13px', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                    contact@prodyous.com
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-brand-bg border-b border-white/10 py-12 md:hidden"
-          >
-            <div className="flex flex-col items-center space-y-8">
-              {navLinks.map((link) => (
-                <a 
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="serif text-3xl italic text-brand-text hover:text-gold transition-colors duration-300"
-                >
-                  {link.name}
-                </a>
-              ))}
-              <a 
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="pt-4 text-xs uppercase tracking-[0.3em] text-brand-gold underline underline-offset-8"
-              >
-                Book a Session
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+      <style>{`
+        @media (max-width: 768px) {
+          #desk-nav { display: none !important; }
+          #ham-btn { display: flex !important; }
+        }
+      `}</style>
+    </>
   );
-};
-
-export default Navbar;
+}

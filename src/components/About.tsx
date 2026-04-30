@@ -1,83 +1,221 @@
 import { motion } from 'motion/react';
 
-const About = () => {
+const NAVY = '#1B1F6B';
+const WHITE = '#FFFFFF';
+
+const highlights = [
+  { label: 'Graduation 🧑‍🎓', count: '100+' },
+  { label: 'Corporate 💼', count: 'Events' },
+  { label: 'Content Creation 🤳', count: 'Social' },
+  { label: 'Avis Clients 😍', count: '★★★★★' },
+  { label: 'Wedding', count: 'Films' },
+];
+
+export default function About() {
   return (
-    <section id="about" className="py-32 bg-brand-bg">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          {/* Left - Image */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
+    <section
+      id="about"
+      style={{
+        backgroundColor: WHITE,
+        padding: 'clamp(80px, 10vh, 140px) clamp(20px, 4vw, 60px)',
+      }}
+    >
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <div
+          className="about-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: 'clamp(40px, 6vw, 100px)',
+            alignItems: 'start',
+          }}
+        >
+          {/* Left — Images */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="relative"
+            transition={{ duration: 0.9 }}
+            style={{ position: 'relative' }}
           >
-            <div className="aspect-[3/4] overflow-hidden border-thin grayscale brightness-75">
-              <img 
-                src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=800" 
-                alt="Youssef Tayibi" 
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+            <div style={{
+              aspectRatio: '3/4',
+              overflow: 'hidden',
+              position: 'relative',
+            }}>
+              <img
+                src="/assets/images/work-3.jpg"
+                alt="Youssef Tayibi at work"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+              />
+              <div style={{ position: 'absolute', inset: 0, backgroundColor: `${NAVY}15` }} />
+            </div>
+
+            <div style={{
+              position: 'absolute',
+              bottom: '-20px',
+              right: '-20px',
+              width: '45%',
+              aspectRatio: '1',
+              overflow: 'hidden',
+              border: `4px solid ${WHITE}`,
+            }}>
+              <img
+                src="/assets/images/youssef-profile.jpg"
+                alt="Youssef Tayibi"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
             </div>
-            {/* Float Badge */}
-            <div className="absolute -bottom-8 -right-8 bg-brand-gold p-8 text-brand-bg shadow-2xl">
-               <span className="serif italic text-4xl block mb-2 leading-none">Prodyous</span>
-               <span className="text-[10px] uppercase tracking-widest font-bold opacity-80">@prodyous.ma</span>
+
+            <div style={{
+              position: 'absolute',
+              top: '24px',
+              left: '-16px',
+              backgroundColor: NAVY,
+              padding: '16px 20px',
+            }}>
+              <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${WHITE}60`, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                Morocco
+              </p>
+              <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 700, fontSize: '18px', color: WHITE, letterSpacing: '-0.01em', marginTop: '4px' }}>
+                ProdYous
+              </p>
             </div>
           </motion.div>
 
-          {/* Right - Copy */}
-          <div className="space-y-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-[10px] uppercase tracking-[0.4em] text-brand-gold mb-6 block">Our Story</span>
-              <h2 className="text-4xl md:text-6xl serif leading-tight">
-                Crafting <span className="italic">cinematic narratives</span> in the heart of Morocco.
-              </h2>
-            </motion.div>
+          {/* Right — Copy */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, delay: 0.15 }}
+            style={{ paddingTop: 'clamp(16px, 4vw, 48px)' }}
+          >
+            <p style={{
+              fontFamily: '"Outfit", sans-serif',
+              fontSize: '12px',
+              fontWeight: 400,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: `${NAVY}50`,
+              marginBottom: '20px',
+            }}>
+              Our Story
+            </p>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="space-y-6 text-brand-text/60 font-light text-lg leading-relaxed max-w-xl"
-            >
-              <p>
-                Based in Rabat, Youssef Tayibi founded Prodyous Studio with a singular vision: to bring cinematic precision to every frame. With over 5 years of experience across film and photography, we blend editorial luxury with authentic storytelling.
-              </p>
-              <p>
-                Our work is characterized by dramatic lighting, moody atmospheres, and a commitment to helping brands and individuals stand out in an increasingly noisy visual landscape. Every project is an opportunity to redefine boundaries.
-              </p>
-            </motion.div>
+            <h2 style={{
+              fontFamily: '"Syne", sans-serif',
+              fontWeight: 800,
+              fontSize: 'clamp(28px, 3.5vw, 48px)',
+              color: NAVY,
+              letterSpacing: '-0.03em',
+              lineHeight: 1.05,
+              marginBottom: '32px',
+            }}>
+              Crafting cinematic<br />narratives in the<br />heart of Morocco.
+            </h2>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="pt-8 grid grid-cols-2 gap-12"
-            >
-              <div>
-                <span className="text-3xl serif block mb-2 italic">Rabat</span>
-                <span className="text-[10px] uppercase tracking-widest text-brand-gold">Main Studio</span>
+            <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '20px', marginBottom: '40px' }}>
+              <p style={{
+                fontFamily: '"Outfit", sans-serif',
+                fontWeight: 300,
+                fontSize: '15px',
+                lineHeight: 1.75,
+                color: `${NAVY}70`,
+              }}>
+                Youssef Tayibi is a filmmaker and photographer based in Morocco, and the founder of ProdYous Visual Production Agency.
+                With a sharp editorial eye and a cinematic approach, he helps brands, creatives, and individuals stand out in a saturated visual landscape.
+              </p>
+              <p style={{
+                fontFamily: '"Outfit", sans-serif',
+                fontWeight: 300,
+                fontSize: '15px',
+                lineHeight: 1.75,
+                color: `${NAVY}70`,
+              }}>
+                From wedding films to corporate events, from graduation ceremonies to brand commercials — every project is treated as an opportunity to push the frame further.
+                Nothing is left to chance. From preparation to final delivery.
+              </p>
+            </div>
+
+            {/* Highlights from Instagram */}
+            <div style={{ marginBottom: '40px' }}>
+              <p style={{
+                fontFamily: '"Outfit", sans-serif',
+                fontSize: '12px',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                color: `${NAVY}40`,
+                marginBottom: '16px',
+              }}>
+                Specialties
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap' as const, gap: '8px' }}>
+                {highlights.map(h => (
+                  <div
+                    key={h.label}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      border: `1px solid ${NAVY}15`,
+                      padding: '8px 14px',
+                    }}
+                  >
+                    <span style={{ fontFamily: '"Outfit", sans-serif', fontSize: '13px', color: `${NAVY}70` }}>{h.label}</span>
+                    <span style={{ fontFamily: '"Syne", sans-serif', fontSize: '11px', fontWeight: 700, color: NAVY }}>{h.count}</span>
+                  </div>
+                ))}
               </div>
-              <div>
-                <span className="text-3xl serif block mb-2 italic">Global</span>
-                <span className="text-[10px] uppercase tracking-widest text-brand-gold">Availability</span>
-              </div>
-            </motion.div>
-          </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '32px' }}>
+              <a
+                href="https://www.instagram.com/youssef_tayibi/"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  fontFamily: '"Outfit", sans-serif',
+                  fontSize: '12px',
+                  fontWeight: 400,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: NAVY,
+                  textDecoration: 'none',
+                  borderBottom: `1px solid ${NAVY}`,
+                  paddingBottom: '4px',
+                }}
+              >
+                @youssef_tayibi ↗
+              </a>
+              <a
+                href="https://www.instagram.com/prodyous.ma/"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  fontFamily: '"Outfit", sans-serif',
+                  fontSize: '12px',
+                  fontWeight: 400,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: `${NAVY}50`,
+                  textDecoration: 'none',
+                  borderBottom: `1px solid ${NAVY}30`,
+                  paddingBottom: '4px',
+                }}
+              >
+                @prodyous.ma ↗
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .about-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   );
-};
-
-export default About;
+}
