@@ -8,14 +8,18 @@ export default function Hero() {
   const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let rafId = 0;
     const onMove = (e: MouseEvent) => {
-      if (!imgRef.current) return;
-      const x = (e.clientX / window.innerWidth - 0.5) * 12;
-      const y = (e.clientY / window.innerHeight - 0.5) * 12;
-      imgRef.current.style.transform = `translate(${x}px, ${y}px)`;
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        if (!imgRef.current) return;
+        const x = (e.clientX / window.innerWidth - 0.5) * 12;
+        const y = (e.clientY / window.innerHeight - 0.5) * 12;
+        imgRef.current.style.transform = `translate(${x}px, ${y}px)`;
+      });
     };
     window.addEventListener('mousemove', onMove, { passive: true });
-    return () => window.removeEventListener('mousemove', onMove);
+    return () => { window.removeEventListener('mousemove', onMove); cancelAnimationFrame(rafId); };
   }, []);
 
   return (
