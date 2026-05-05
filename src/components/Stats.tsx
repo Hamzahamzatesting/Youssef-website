@@ -41,8 +41,8 @@ export default function Stats() {
               }}
             >
               <p style={{
-                fontFamily: '"Syne", sans-serif',
-                fontWeight: 800,
+                fontFamily: '"Cunia", sans-serif',
+                fontWeight: 400,
                 fontSize: 'clamp(48px, 5vw, 80px)',
                 color: NAVY,
                 lineHeight: 1,
@@ -51,7 +51,7 @@ export default function Stats() {
                 {s.value}
               </p>
               <p style={{
-                fontFamily: '"Outfit", sans-serif',
+                fontFamily: '"Montserrat", sans-serif',
                 fontWeight: 400,
                 fontSize: '15px',
                 color: NAVY,
@@ -61,8 +61,8 @@ export default function Stats() {
                 {s.label}
               </p>
               <p style={{
-                fontFamily: '"Outfit", sans-serif',
-                fontWeight: 300,
+                fontFamily: '"Montserrat", sans-serif',
+                fontWeight: 400,
                 fontSize: '12px',
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',

@@ -38,8 +38,8 @@ export default function Marquee() {
           <span
             key={i}
             style={{
-              fontFamily: '"Syne", sans-serif',
-              fontWeight: 700,
+              fontFamily: '"Cunia", sans-serif',
+              fontWeight: 400,
               fontSize: 'clamp(13px, 1.5vw, 16px)',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',

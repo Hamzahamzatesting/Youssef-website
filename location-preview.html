@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Location — ProdYous</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/cunia" rel="stylesheet">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson@3.0.2/dist/topojson.min.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+body { background: #000; font-family: 'Montserrat', sans-serif; color: white; overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  display: flex; justify-content: center; gap: 6px; padding: 14px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.92), transparent);
+}
+nav a {
+  color: rgba(255,255,255,0.35); text-decoration: none;
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  padding: 7px 18px; border: 1px solid rgba(255,255,255,0.1); transition: all .25s;
+}
+nav a:hover { color: white; border-color: rgba(255,255,255,0.35); }
+
+section { scroll-snap-align: start; height: 100vh; position: relative; overflow: hidden; }
+canvas { display: block; position: absolute; inset: 0; width: 100%; height: 100%; }
+.stag {
+  position: absolute; top: 72px; left: 50%; transform: translateX(-50%);
+  font-size: 8px; letter-spacing: 5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.15); white-space: nowrap; z-index: 10; pointer-events: none;
+}
+
+/* ── shared status dot ── */
+.sdot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #3dff7a; box-shadow: 0 0 14px #3dff7a;
+  animation: glowPulse 2s ease-in-out infinite; flex-shrink: 0;
+}
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 0 8px #3dff7a; }
+  50%      { box-shadow: 0 0 26px #3dff7a, 0 0 50px rgba(61,255,122,0.2); }
+}
+
+/* ══════════════════════════════════════
+   A  —  CINEMATIC BOTTOM BAR
+══════════════════════════════════════ */
+#optA .bar {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 5;
+  padding: clamp(28px,4.5vw,60px) clamp(32px,6vw,80px);
+  background: linear-gradient(to top,
+    rgba(0,8,3,0.92) 0%,
+    rgba(0,8,3,0.55) 50%,
+    transparent 100%);
+  display: flex; align-items: flex-end;
+  justify-content: space-between; gap: 20px; flex-wrap: wrap;
+}
+.bar-eyebrow {
+  font-size: 10px; letter-spacing: 6px; text-transform: uppercase;
+  color: rgba(255,255,255,0.28); margin-bottom: 12px;
+  animation: fadeUp .9s both;
+}
+.bar-title {
+  font-family: 'Cunia', sans-serif;
+  font-size: clamp(60px, 10vw, 128px);
+  font-weight: 400; line-height: .88; letter-spacing: -4px;
+  animation: fadeUp 1s .08s both;
+}
+.bar-right {
+  display: flex; flex-direction: column; align-items: flex-end;
+  gap: 8px; padding-bottom: 4px;
+  animation: fadeUp 1s .18s both;
+}
+.bar-coord {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(9px, 1.05vw, 12px);
+  color: rgba(255,255,255,0.25); letter-spacing: 2px;
+}
+.bar-status { display: flex; align-items: center; gap: 9px; margin-top: 10px; }
+.bar-status span {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ══════════════════════════════════════
+   B  —  FLOATING GLASS CARD
+══════════════════════════════════════ */
+#optB .glass-card {
+  position: absolute;
+  right: clamp(24px, 5vw, 72px);
+  top: 50%; transform: translateY(-50%);
+  z-index: 5;
+  width: clamp(230px, 24vw, 300px);
+  padding: 32px 28px;
+  background: rgba(0, 12, 6, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.07);
+  animation: fadeIn 1.4s .2s both;
+}
+.gc-title {
+  font-family: 'Cunia', sans-serif;
+  font-size: clamp(30px, 3.5vw, 46px);
+  font-weight: 400; line-height: .95;
+  margin-bottom: 28px;
+}
+.gc-rows { display: flex; flex-direction: column; }
+.gc-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 16px; padding: 11px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.055);
+}
+.gc-row:last-child { border: none; }
+.gc-k {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.22); white-space: nowrap;
+}
+.gc-v {
+  font-family: 'Courier New', monospace; font-size: 11px;
+  color: rgba(255,255,255,0.6); text-align: right;
+}
+.gc-status {
+  display: flex; align-items: center; gap: 9px;
+  margin-top: 22px; padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.055);
+}
+.gc-status span {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+@keyframes fadeUp  { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn  { from{opacity:0} to{opacity:1} }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#optA">A — Cinematic</a>
+  <a href="#optB">B — Glass Card</a>
+</nav>
+
+<!-- ══ A ══ -->
+<section id="optA">
+  <span class="stag">A — Cinematic Bottom Bar</span>
+  <canvas id="canvasA"></canvas>
+  <div class="bar">
+    <div>
+      <p class="bar-eyebrow">Production Base</p>
+      <h1 class="bar-title">Morocco.</h1>
+    </div>
+    <div class="bar-right">
+      <span class="bar-coord">LAT &nbsp; 33°58' N</span>
+      <span class="bar-coord">LNG &nbsp; 06°51' W</span>
+      <span class="bar-coord">GMT &nbsp; +01:00</span>
+      <div class="bar-status">
+        <div class="sdot"></div>
+        <span>Available Worldwide</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ B ══ -->
+<section id="optB">
+  <span class="stag">B — Floating Glass Card</span>
+  <canvas id="canvasB"></canvas>
+  <div class="glass-card">
+    <div class="gc-title">Morocco.</div>
+    <div class="gc-rows">
+      <div class="gc-row"><span class="gc-k">Latitude</span> <span class="gc-v">33°58' N</span></div>
+      <div class="gc-row"><span class="gc-k">Longitude</span><span class="gc-v">06°51' W</span></div>
+      <div class="gc-row"><span class="gc-k">Timezone</span> <span class="gc-v">GMT +1</span></div>
+      <div class="gc-row"><span class="gc-k">Coverage</span> <span class="gc-v">Worldwide</span></div>
+    </div>
+    <div class="gc-status"><div class="sdot"></div><span>Available for projects</span></div>
+  </div>
+</section>
+
+<script>
+// Morocco = 504, Western Sahara = 732
+const HIGHLIGHT = new Set([504, 732]);
+
+function buildGlobe(canvasId, offsetX = 0) {
+  const canvas = document.getElementById(canvasId);
+  const W = window.innerWidth;
+  const H = window.innerHeight;
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  const rot = [5, -32, 0];
+  const proj = d3.geoOrthographic()
+    .scale(Math.min(W, H) * 0.48)
+    .translate([W / 2 + offsetX, H / 2])
+    .rotate(rot);
+
+  const gp       = d3.geoPath().projection(proj).context(ctx);
+  const graticule = d3.geoGraticule()();
+  const sphere    = { type: 'Sphere' };
+
+  let morocco, others, borders, go = false;
+
+  function frame() {
+    if (!go) return;
+    ctx.clearRect(0, 0, W, H);
+
+    // Ocean
+    ctx.beginPath(); gp(sphere);
+    ctx.fillStyle = '#010c07'; ctx.fill();
+
+    // Graticule
+    ctx.beginPath(); gp(graticule);
+    ctx.strokeStyle = 'rgba(0,200,60,0.03)';
+    ctx.lineWidth = 0.5; ctx.stroke();
+
+    // All other countries
+    ctx.beginPath();
+    others.forEach(f => gp(f));
+    ctx.fillStyle = '#0a1a0d'; ctx.fill();
+
+    // Country borders
+    ctx.beginPath(); gp(borders);
+    ctx.strokeStyle = '#142810'; ctx.lineWidth = 0.3; ctx.stroke();
+
+    // Morocco — glow halo (draw before solid)
+    ctx.save();
+    ctx.beginPath(); morocco.forEach(f => gp(f));
+    ctx.shadowBlur = 55; ctx.shadowColor = 'rgba(60,255,100,0.55)';
+    ctx.fillStyle = 'rgba(160,255,190,0.18)'; ctx.fill();
+    ctx.shadowBlur = 25; ctx.shadowColor = 'rgba(100,255,140,0.45)';
+    ctx.fill();
+    ctx.restore();
+
+    // Morocco — solid fill
+    ctx.beginPath(); morocco.forEach(f => gp(f));
+    ctx.fillStyle = '#bfffd5'; ctx.fill();
+
+    // Morocco — crisp border
+    ctx.beginPath(); morocco.forEach(f => gp(f));
+    ctx.strokeStyle = 'rgba(200,255,220,0.6)';
+    ctx.lineWidth = 0.8; ctx.stroke();
+
+    // Casablanca city dot
+    const [cx, cy] = proj([-7.62, 33.59]);
+    if (cx > 0 && cx < W && cy > 0 && cy < H) {
+      ctx.save();
+      ctx.shadowBlur = 16; ctx.shadowColor = 'rgba(255,255,255,0.9)';
+      ctx.beginPath(); ctx.arc(cx, cy, 3.5, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff'; ctx.fill();
+      ctx.restore();
+    }
+
+    // Slow eastward drift
+    rot[0] += 0.007;
+    proj.rotate(rot);
+    requestAnimationFrame(frame);
+  }
+
+  return {
+    load(m, o, b) { morocco = m; others = o; borders = b; go = true; frame(); }
+  };
+}
+
+const gA = buildGlobe('canvasA', 0);
+const gB = buildGlobe('canvasB', -window.innerWidth * 0.08);
+
+fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+  .then(r => r.json())
+  .then(world => {
+    const feat    = topojson.feature(world, world.objects.countries);
+    const borders = topojson.mesh(world, world.objects.countries, (a, b) => a !== b);
+    const morocco = feat.features.filter(f => HIGHLIGHT.has(+f.id));
+    const others  = feat.features.filter(f => !HIGHLIGHT.has(+f.id));
+    gA.load(morocco, others, borders);
+    gB.load(morocco, others, borders);
+  });
+</script>
+</body>
+</html>

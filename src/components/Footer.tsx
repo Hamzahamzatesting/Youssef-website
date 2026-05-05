@@ -43,8 +43,8 @@ export default function Footer() {
                 style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover', border: `2px solid ${WHITE}15` }}
               />
               <span style={{
-                fontFamily: '"Syne", sans-serif',
-                fontWeight: 800,
+                fontFamily: '"Cunia", sans-serif',
+                fontWeight: 400,
                 fontSize: '16px',
                 color: WHITE,
                 letterSpacing: '0.05em',
@@ -53,8 +53,8 @@ export default function Footer() {
               </span>
             </div>
             <p style={{
-              fontFamily: '"Outfit", sans-serif',
-              fontWeight: 300,
+              fontFamily: '"Montserrat", sans-serif',
+              fontWeight: 400,
               fontSize: '14px',
               color: `${WHITE}75`,
               lineHeight: 1.7,
@@ -67,7 +67,7 @@ export default function Footer() {
           {/* Nav links */}
           <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '16px' }}>
             <p style={{
-              fontFamily: '"Outfit", sans-serif',
+              fontFamily: '"Montserrat", sans-serif',
               fontSize: '11px',
               fontWeight: 400,
               letterSpacing: '0.18em',
@@ -82,7 +82,7 @@ export default function Footer() {
                 key={l.label}
                 href={l.href}
                 style={{
-                  fontFamily: '"Outfit", sans-serif',
+                  fontFamily: '"Montserrat", sans-serif',
                   fontWeight: 400,
                   fontSize: '14px',
                   color: `${WHITE}75`,
@@ -101,7 +101,7 @@ export default function Footer() {
           {/* Social + contact */}
           <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '16px' }}>
             <p style={{
-              fontFamily: '"Outfit", sans-serif',
+              fontFamily: '"Montserrat", sans-serif',
               fontSize: '11px',
               fontWeight: 400,
               letterSpacing: '0.18em',
@@ -118,7 +118,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 style={{
-                  fontFamily: '"Outfit", sans-serif',
+                  fontFamily: '"Montserrat", sans-serif',
                   fontWeight: 400,
                   fontSize: '14px',
                   color: `${WHITE}75`,
@@ -135,7 +135,7 @@ export default function Footer() {
             <a
               href="mailto:contact@prodyous.com"
               style={{
-                fontFamily: '"Outfit", sans-serif',
+                fontFamily: '"Montserrat", sans-serif',
                 fontWeight: 400,
                 fontSize: '14px',
                 color: `${WHITE}55`,
@@ -163,8 +163,8 @@ export default function Footer() {
           gap: '16px',
         }}>
           <p style={{
-            fontFamily: '"Outfit", sans-serif',
-            fontWeight: 300,
+            fontFamily: '"Montserrat", sans-serif',
+            fontWeight: 400,
             fontSize: '12px',
             color: `${WHITE}50`,
             letterSpacing: '0.08em',
@@ -172,8 +172,8 @@ export default function Footer() {
             © 2026 Youssef Tayibi · ProdYous Visual Production Agency · Morocco · All Rights Reserved
           </p>
           <p style={{
-            fontFamily: '"Outfit", sans-serif',
-            fontWeight: 300,
+            fontFamily: '"Montserrat", sans-serif',
+            fontWeight: 400,
             fontSize: '12px',
             color: `${WHITE}45`,
             letterSpacing: '0.06em',

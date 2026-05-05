@@ -59,8 +59,8 @@ export default function Navbar() {
               }}
             />
             <span style={{
-              fontFamily: '"Syne", sans-serif',
-              fontWeight: 800,
+              fontFamily: '"Cunia", sans-serif',
+              fontWeight: 400,
               fontSize: '16px',
               color: scrolled ? NAVY : WHITE,
               letterSpacing: '0.05em',
@@ -76,7 +76,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 style={{
-                  fontFamily: '"Outfit", sans-serif',
+                  fontFamily: '"Montserrat", sans-serif',
                   fontWeight: 400,
                   fontSize: '13px',
                   letterSpacing: '0.12em',
@@ -95,7 +95,7 @@ export default function Navbar() {
             <a
               href="mailto:contact@prodyous.com"
               style={{
-                fontFamily: '"Outfit", sans-serif',
+                fontFamily: '"Montserrat", sans-serif',
                 fontWeight: 400,
                 fontSize: '12px',
                 letterSpacing: '0.12em',
@@ -156,8 +156,8 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
                     style={{
-                      fontFamily: '"Syne", sans-serif',
-                      fontWeight: 700,
+                      fontFamily: '"Cunia", sans-serif',
+                      fontWeight: 400,
                       fontSize: 'clamp(32px, 8vw, 48px)',
                       color: WHITE,
                       textDecoration: 'none',
@@ -168,7 +168,7 @@ export default function Navbar() {
                   </a>
                 ))}
                 <div style={{ marginTop: '16px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
-                  <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '13px', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                  <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '13px', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                     contact@prodyous.com
                   </p>
                 </div>

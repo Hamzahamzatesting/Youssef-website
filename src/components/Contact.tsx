@@ -19,8 +19,8 @@ export default function Contact() {
   };
 
   const inputStyle: CSSProperties = {
-    fontFamily: '"Outfit", sans-serif',
-    fontWeight: 300,
+    fontFamily: '"Montserrat", sans-serif',
+    fontWeight: 400,
     fontSize: '15px',
     color: WHITE,
     backgroundColor: 'transparent',
@@ -33,7 +33,7 @@ export default function Contact() {
   };
 
   const labelStyle: CSSProperties = {
-    fontFamily: '"Outfit", sans-serif',
+    fontFamily: '"Montserrat", sans-serif',
     fontSize: '11px',
     fontWeight: 400,
     letterSpacing: '0.18em',
@@ -59,8 +59,8 @@ export default function Contact() {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        fontFamily: '"Syne", sans-serif',
-        fontWeight: 800,
+        fontFamily: '"Cunia", sans-serif',
+        fontWeight: 400,
         fontSize: 'clamp(80px, 14vw, 200px)',
         color: `${WHITE}04`,
         whiteSpace: 'nowrap',
@@ -80,7 +80,7 @@ export default function Contact() {
           style={{ marginBottom: 'clamp(48px, 6vh, 80px)' }}
         >
           <p style={{
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Montserrat", sans-serif',
             fontSize: '12px',
             fontWeight: 400,
             letterSpacing: '0.18em',
@@ -91,8 +91,8 @@ export default function Contact() {
             Ready to Collaborate?
           </p>
           <h2 style={{
-            fontFamily: '"Syne", sans-serif',
-            fontWeight: 800,
+            fontFamily: '"Cunia", sans-serif',
+            fontWeight: 400,
             fontSize: 'clamp(36px, 5vw, 72px)',
             color: WHITE,
             letterSpacing: '-0.03em',
@@ -101,8 +101,8 @@ export default function Contact() {
             Let's create<br />something real.
           </h2>
           <p style={{
-            fontFamily: '"Outfit", sans-serif',
-            fontWeight: 300,
+            fontFamily: '"Montserrat", sans-serif',
+            fontWeight: 400,
             fontSize: '15px',
             color: `${WHITE}80`,
             marginTop: '24px',
@@ -123,10 +123,10 @@ export default function Contact() {
               textAlign: 'center',
             }}
           >
-            <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 700, fontSize: '28px', color: WHITE, letterSpacing: '-0.02em', marginBottom: '12px' }}>
+            <p style={{ fontFamily: '"Cunia", sans-serif', fontWeight: 400, fontSize: '28px', color: WHITE, letterSpacing: '-0.02em', marginBottom: '12px' }}>
               Message sent.
             </p>
-            <p style={{ fontFamily: '"Outfit", sans-serif', fontWeight: 300, fontSize: '15px', color: `${WHITE}80` }}>
+            <p style={{ fontFamily: '"Montserrat", sans-serif', fontWeight: 400, fontSize: '15px', color: `${WHITE}80` }}>
               We'll be in touch shortly at {form.email}
             </p>
           </motion.div>
@@ -218,7 +218,7 @@ export default function Contact() {
               <button
                 type="submit"
                 style={{
-                  fontFamily: '"Outfit", sans-serif',
+                  fontFamily: '"Montserrat", sans-serif',
                   fontSize: '12px',
                   fontWeight: 400,
                   letterSpacing: '0.12em',
@@ -238,9 +238,9 @@ export default function Contact() {
               <a
                 href="mailto:contact@prodyous.com"
                 style={{
-                  fontFamily: '"Outfit", sans-serif',
+                  fontFamily: '"Montserrat", sans-serif',
                   fontSize: '13px',
-                  fontWeight: 300,
+                  fontWeight: 400,
                   color: `${WHITE}50`,
                   textDecoration: 'none',
                   letterSpacing: '0.06em',
@@ -273,10 +273,10 @@ export default function Contact() {
                 gap: '4px',
               }}
             >
-              <span style={{ fontFamily: '"Syne", sans-serif', fontWeight: 700, fontSize: '16px', color: WHITE, letterSpacing: '-0.01em' }}>
+              <span style={{ fontFamily: '"Cunia", sans-serif', fontWeight: 400, fontSize: '16px', color: WHITE, letterSpacing: '-0.01em' }}>
                 {ig.handle}
               </span>
-              <span style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${WHITE}65`, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              <span style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '11px', color: `${WHITE}65`, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 Instagram · {ig.desc}
               </span>
             </div>

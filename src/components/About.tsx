@@ -74,10 +74,10 @@ export default function About() {
               backgroundColor: NAVY,
               padding: '16px 20px',
             }}>
-              <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${WHITE}80`, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '11px', color: `${WHITE}80`, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 Morocco
               </p>
-              <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 700, fontSize: '18px', color: WHITE, letterSpacing: '-0.01em', marginTop: '4px' }}>
+              <p style={{ fontFamily: '"Cunia", sans-serif', fontWeight: 400, fontSize: '18px', color: WHITE, letterSpacing: '-0.01em', marginTop: '4px' }}>
                 ProdYous
               </p>
             </div>
@@ -92,7 +92,7 @@ export default function About() {
             style={{ paddingTop: 'clamp(16px, 4vw, 48px)' }}
           >
             <p style={{
-              fontFamily: '"Outfit", sans-serif',
+              fontFamily: '"Montserrat", sans-serif',
               fontSize: '12px',
               fontWeight: 400,
               letterSpacing: '0.18em',
@@ -104,8 +104,8 @@ export default function About() {
             </p>
 
             <h2 style={{
-              fontFamily: '"Syne", sans-serif',
-              fontWeight: 800,
+              fontFamily: '"Cunia", sans-serif',
+              fontWeight: 400,
               fontSize: 'clamp(28px, 3.5vw, 48px)',
               color: NAVY,
               letterSpacing: '-0.03em',
@@ -117,8 +117,8 @@ export default function About() {
 
             <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '20px', marginBottom: '40px' }}>
               <p style={{
-                fontFamily: '"Outfit", sans-serif',
-                fontWeight: 300,
+                fontFamily: '"Montserrat", sans-serif',
+                fontWeight: 400,
                 fontSize: '15px',
                 lineHeight: 1.75,
                 color: `${NAVY}85`,
@@ -127,8 +127,8 @@ export default function About() {
                 With a sharp editorial eye and a cinematic approach, he helps brands, creatives, and individuals stand out in a saturated visual landscape.
               </p>
               <p style={{
-                fontFamily: '"Outfit", sans-serif',
-                fontWeight: 300,
+                fontFamily: '"Montserrat", sans-serif',
+                fontWeight: 400,
                 fontSize: '15px',
                 lineHeight: 1.75,
                 color: `${NAVY}70`,
@@ -141,7 +141,7 @@ export default function About() {
             {/* Highlights from Instagram */}
             <div style={{ marginBottom: '40px' }}>
               <p style={{
-                fontFamily: '"Outfit", sans-serif',
+                fontFamily: '"Montserrat", sans-serif',
                 fontSize: '12px',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
@@ -162,8 +162,8 @@ export default function About() {
                       padding: '8px 14px',
                     }}
                   >
-                    <span style={{ fontFamily: '"Outfit", sans-serif', fontSize: '13px', color: `${NAVY}85` }}>{h.label}</span>
-                    <span style={{ fontFamily: '"Syne", sans-serif', fontSize: '11px', fontWeight: 700, color: NAVY }}>{h.count}</span>
+                    <span style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '13px', color: `${NAVY}85` }}>{h.label}</span>
+                    <span style={{ fontFamily: '"Cunia", sans-serif', fontSize: '11px', fontWeight: 400, color: NAVY }}>{h.count}</span>
                   </div>
                 ))}
               </div>
@@ -173,7 +173,7 @@ export default function About() {
               <a
                 href="#contact"
                 style={{
-                  fontFamily: '"Outfit", sans-serif',
+                  fontFamily: '"Montserrat", sans-serif',
                   fontSize: '12px',
                   fontWeight: 400,
                   letterSpacing: '0.12em',
@@ -189,7 +189,7 @@ export default function About() {
               <a
                 href="#work"
                 style={{
-                  fontFamily: '"Outfit", sans-serif',
+                  fontFamily: '"Montserrat", sans-serif',
                   fontSize: '12px',
                   fontWeight: 400,
                   letterSpacing: '0.12em',

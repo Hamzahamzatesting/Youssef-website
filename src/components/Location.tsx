@@ -352,7 +352,7 @@ export default function Location() {
             gap: '8px', marginBottom: '10px',
           }}>
             <span style={{
-              fontFamily: 'Outfit, sans-serif', fontSize: '8px',
+              fontFamily: 'Montserrat, sans-serif', fontSize: '8px',
               letterSpacing: '4px', textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.5)',
             }}>
@@ -396,7 +396,7 @@ export default function Location() {
           }}>
             <div style={{ width: '20px', height: '1px', background: 'rgba(255,255,255,0.4)' }} />
             <p style={{
-              fontFamily: 'Outfit, sans-serif', fontSize: '11px',
+              fontFamily: 'Montserrat, sans-serif', fontSize: '11px',
               letterSpacing: '5px', textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.65)',
             }}>
@@ -405,16 +405,16 @@ export default function Location() {
             <div style={{ width: '20px', height: '1px', background: 'rgba(255,255,255,0.4)' }} />
           </div>
           <h2 style={{
-            fontFamily: 'Syne, sans-serif',
+            fontFamily: 'Cunia, sans-serif',
             fontSize: 'clamp(60px, 10vw, 128px)',
-            fontWeight: 800, lineHeight: 0.88, letterSpacing: '-4px', color: 'white',
+            fontWeight: 400, lineHeight: 0.88, letterSpacing: '-4px', color: 'white',
             marginBottom: '16px',
           }}>
             Morocco.
           </h2>
           <p style={{
-            fontFamily: 'Outfit, sans-serif', fontSize: '15px',
-            fontWeight: 300, letterSpacing: '0.04em',
+            fontFamily: 'Montserrat, sans-serif', fontSize: '15px',
+            fontWeight: 400, letterSpacing: '0.04em',
             color: 'rgba(255,255,255,0.55)',
             marginTop: '8px',
           }}>
@@ -427,7 +427,7 @@ export default function Location() {
               animation: 'locDotPulse 2s ease-in-out infinite',
             }} />
             <span style={{
-              fontFamily: 'Outfit, sans-serif', fontSize: '9px',
+              fontFamily: 'Montserrat, sans-serif', fontSize: '9px',
               letterSpacing: '3px', textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.3)',
             }}>

@@ -66,7 +66,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             style={{
-              fontFamily: '"Outfit", sans-serif',
+              fontFamily: '"Montserrat", sans-serif',
               fontSize: '12px',
               fontWeight: 400,
               letterSpacing: '0.18em',
@@ -83,8 +83,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             style={{
-              fontFamily: '"Syne", sans-serif',
-              fontWeight: 800,
+              fontFamily: '"Cunia", sans-serif',
+              fontWeight: 400,
               fontSize: 'clamp(48px, 6.5vw, 96px)',
               lineHeight: 1,
               letterSpacing: '-0.03em',
@@ -102,8 +102,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25 }}
             style={{
-              fontFamily: '"Outfit", sans-serif',
-              fontWeight: 300,
+              fontFamily: '"Montserrat", sans-serif',
+              fontWeight: 400,
               fontSize: '15px',
               lineHeight: 1.7,
               color: `${WHITE}90`,
@@ -125,7 +125,7 @@ export default function Hero() {
             <a
               href="#work"
               style={{
-                fontFamily: '"Outfit", sans-serif',
+                fontFamily: '"Montserrat", sans-serif',
                 fontSize: '12px',
                 fontWeight: 400,
                 letterSpacing: '0.12em',
@@ -145,7 +145,7 @@ export default function Hero() {
             <a
               href="mailto:contact@prodyous.com"
               style={{
-                fontFamily: '"Outfit", sans-serif',
+                fontFamily: '"Montserrat", sans-serif',
                 fontSize: '12px',
                 fontWeight: 400,
                 letterSpacing: '0.12em',
@@ -179,8 +179,8 @@ export default function Hero() {
               { label: '100+', sub: 'Soutenances' },
             ].map(s => (
               <div key={s.label}>
-                <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 700, fontSize: '28px', color: WHITE, letterSpacing: '-0.02em', lineHeight: 1 }}>{s.label}</p>
-                <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${WHITE}70`, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '6px' }}>{s.sub}</p>
+                <p style={{ fontFamily: '"Cunia", sans-serif', fontWeight: 400, fontSize: '28px', color: WHITE, letterSpacing: '-0.02em', lineHeight: 1 }}>{s.label}</p>
+                <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '11px', color: `${WHITE}70`, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '6px' }}>{s.sub}</p>
               </div>
             ))}
           </motion.div>
@@ -273,8 +273,8 @@ export default function Hero() {
               style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover' }}
             />
             <div>
-              <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 700, fontSize: '13px', color: NAVY, lineHeight: 1 }}>@youssef_tayibi</p>
-              <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: `${NAVY}80`, marginTop: '3px', letterSpacing: '0.06em' }}>Instagram</p>
+              <p style={{ fontFamily: '"Cunia", sans-serif', fontWeight: 400, fontSize: '13px', color: NAVY, lineHeight: 1 }}>@youssef_tayibi</p>
+              <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '11px', color: `${NAVY}80`, marginTop: '3px', letterSpacing: '0.06em' }}>Instagram</p>
             </div>
           </div>
 
@@ -290,7 +290,7 @@ export default function Hero() {
           }}
           className="hero-agency-tag"
           >
-            <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: WHITE, letterSpacing: '0.12em', textTransform: 'uppercase' }}>@prodyous.ma</p>
+            <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '11px', color: WHITE, letterSpacing: '0.12em', textTransform: 'uppercase' }}>@prodyous.ma</p>
           </div>
         </motion.div>
       </div>
@@ -312,7 +312,7 @@ export default function Hero() {
           transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
           style={{ width: '1px', height: '48px', backgroundColor: WHITE }}
         />
-        <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '10px', color: WHITE, letterSpacing: '0.2em', textTransform: 'uppercase' }}>Scroll</p>
+        <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '10px', color: WHITE, letterSpacing: '0.2em', textTransform: 'uppercase' }}>Scroll</p>
       </div>
 
       <style>{`

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Syne", sans-serif;
-  --font-body: "Outfit", sans-serif;
+  --font-display: "Cunia", sans-serif;
+  --font-body: "Montserrat", sans-serif;
 
   --color-navy: #1B1F6B;
   --color-white: #FFFFFF;
@@ -20,7 +20,7 @@
   }
 
   body {
-    font-family: "Outfit", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     background-color: #FFFFFF;
     color: #1B1F6B;
@@ -30,8 +30,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Syne", sans-serif;
-    font-weight: 800;
+    font-family: "Cunia", sans-serif;
+    font-weight: 400;
     line-height: 1;
     letter-spacing: -0.02em;
   }

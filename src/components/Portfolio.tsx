@@ -67,7 +67,7 @@ function WorkCard({ work, index, onOpen }: WorkCardProps) {
         display: 'flex', alignItems: 'center', gap: '5px',
       }}>
         <span style={{ fontSize: '9px', color: WHITE }}>{work.isReel ? '▶' : '◼'}</span>
-        <span style={{ fontFamily: '"Outfit", sans-serif', fontSize: '10px', color: WHITE, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+        <span style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '10px', color: WHITE, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
           {work.isReel ? 'Reel' : 'Photo'}
         </span>
       </div>
@@ -76,7 +76,7 @@ function WorkCard({ work, index, onOpen }: WorkCardProps) {
         position: 'absolute', top: '10px', right: '10px',
         backgroundColor: `${NAVY}CC`, padding: '4px 10px',
       }}>
-        <span style={{ fontFamily: '"Outfit", sans-serif', fontSize: '9px', color: `${WHITE}90`, letterSpacing: '0.08em' }}>
+        <span style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '9px', color: `${WHITE}90`, letterSpacing: '0.08em' }}>
           @{work.account === 'youssef' ? 'youssef_tayibi' : 'prodyous.ma'}
         </span>
       </div>
@@ -86,14 +86,14 @@ function WorkCard({ work, index, onOpen }: WorkCardProps) {
         opacity: hovered ? 0.9 : 0, transition: 'opacity 0.3s ease',
         display: 'flex', flexDirection: 'column' as const, alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '20px',
       }}>
-        <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: `${WHITE}80`, transform: hovered ? 'translateY(0)' : 'translateY(8px)', transition: 'transform 0.3s ease 0.04s' }}>
+        <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: `${WHITE}80`, transform: hovered ? 'translateY(0)' : 'translateY(8px)', transition: 'transform 0.3s ease 0.04s' }}>
           {work.category}
         </p>
-        <p style={{ fontFamily: '"Syne", sans-serif', fontSize: '18px', fontWeight: 700, color: WHITE, textAlign: 'center' as const, transform: hovered ? 'translateY(0)' : 'translateY(8px)', transition: 'transform 0.3s ease 0.09s' }}>
+        <p style={{ fontFamily: '"Cunia", sans-serif', fontSize: '18px', fontWeight: 400, color: WHITE, textAlign: 'center' as const, transform: hovered ? 'translateY(0)' : 'translateY(8px)', transition: 'transform 0.3s ease 0.09s' }}>
           {work.title}
         </p>
         <div style={{ padding: '7px 18px', border: `1px solid ${WHITE}55`, transform: hovered ? 'translateY(0)' : 'translateY(8px)', transition: 'transform 0.3s ease 0.14s' }}>
-          <span style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', color: WHITE, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+          <span style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '11px', color: WHITE, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
             {work.isReel ? '▶ Play Reel' : '◼ View Photo'}
           </span>
         </div>
@@ -162,13 +162,13 @@ function Lightbox({ work, onClose }: { work: Work; onClose: () => void }) {
 
         {/* Info strip */}
         <div style={{ width: '100%', backgroundColor: NAVY, padding: '24px 28px', borderTop: `1px solid ${WHITE}15` }}>
-          <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: `${WHITE}65`, marginBottom: '8px' }}>
+          <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: `${WHITE}65`, marginBottom: '8px' }}>
             {work.category} · @{work.account === 'youssef' ? 'youssef_tayibi' : 'prodyous.ma'}
           </p>
-          <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 800, fontSize: '22px', color: WHITE, letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '10px' }}>
+          <p style={{ fontFamily: '"Cunia", sans-serif', fontWeight: 400, fontSize: '22px', color: WHITE, letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '10px' }}>
             {work.title}
           </p>
-          <p style={{ fontFamily: '"Outfit", sans-serif', fontWeight: 300, fontSize: '14px', color: `${WHITE}85`, lineHeight: 1.65 }}>
+          <p style={{ fontFamily: '"Montserrat", sans-serif', fontWeight: 400, fontSize: '14px', color: `${WHITE}85`, lineHeight: 1.65 }}>
             {work.caption}
           </p>
         </div>
@@ -188,7 +188,7 @@ function Lightbox({ work, onClose }: { work: Work; onClose: () => void }) {
 }
 
 const filterBtn = (active: boolean) => ({
-  fontFamily: '"Outfit", sans-serif',
+  fontFamily: '"Montserrat", sans-serif',
   fontSize: '13px',
   fontWeight: 400,
   letterSpacing: '0.1em',
@@ -222,14 +222,14 @@ export default function Portfolio() {
 
           {/* Header */}
           <div style={{ marginBottom: 'clamp(40px, 5vh, 64px)' }}>
-            <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '12px', letterSpacing: '0.18em', textTransform: 'uppercase', color: `${NAVY}60`, marginBottom: '16px' }}>
+            <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '12px', letterSpacing: '0.18em', textTransform: 'uppercase', color: `${NAVY}60`, marginBottom: '16px' }}>
               Selected Work
             </p>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap' as const, gap: '24px' }}>
-              <h2 style={{ fontFamily: '"Syne", sans-serif', fontWeight: 800, fontSize: 'clamp(32px, 4.5vw, 56px)', color: NAVY, letterSpacing: '-0.03em', lineHeight: 1 }}>
+              <h2 style={{ fontFamily: '"Cunia", sans-serif', fontWeight: 400, fontSize: 'clamp(32px, 4.5vw, 56px)', color: NAVY, letterSpacing: '-0.03em', lineHeight: 1 }}>
                 Every frame<br />tells a story.
               </h2>
-              <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '13px', color: `${NAVY}55` }}>
+              <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '13px', color: `${NAVY}55` }}>
                 {counts.all} pieces · {counts.videos} reels · {counts.photos} photos
               </p>
             </div>
@@ -242,7 +242,7 @@ export default function Portfolio() {
                 {f === 'all' ? `All (${counts.all})` : f === 'videos' ? `▶ Reels (${counts.videos})` : `◼ Photos (${counts.photos})`}
               </button>
             ))}
-            <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '12px', color: `${NAVY}45`, display: 'flex', alignItems: 'center', marginLeft: '16px' }}>
+            <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '12px', color: `${NAVY}45`, display: 'flex', alignItems: 'center', marginLeft: '16px' }}>
               Open any card
             </p>
           </div>
@@ -271,8 +271,8 @@ export default function Portfolio() {
               { label: '@prodyous.ma', desc: 'Agency account · 8 pieces' },
             ].map(a => (
               <div key={a.label}>
-                <p style={{ fontFamily: '"Syne", sans-serif', fontWeight: 700, fontSize: '15px', color: NAVY }}>{a.label}</p>
-                <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: '12px', color: `${NAVY}55`, marginTop: '3px' }}>{a.desc}</p>
+                <p style={{ fontFamily: '"Cunia", sans-serif', fontWeight: 400, fontSize: '15px', color: NAVY }}>{a.label}</p>
+                <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '12px', color: `${NAVY}55`, marginTop: '3px' }}>{a.desc}</p>
               </div>
             ))}
           </div>

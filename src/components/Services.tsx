@@ -54,7 +54,7 @@ export default function Services() {
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ marginBottom: 'clamp(48px, 6vh, 80px)' }}>
           <p style={{
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Montserrat", sans-serif',
             fontSize: '12px',
             fontWeight: 400,
             letterSpacing: '0.18em',
@@ -65,8 +65,8 @@ export default function Services() {
             Expertise
           </p>
           <h2 style={{
-            fontFamily: '"Syne", sans-serif',
-            fontWeight: 800,
+            fontFamily: '"Cunia", sans-serif',
+            fontWeight: 400,
             fontSize: 'clamp(32px, 4.5vw, 56px)',
             color: WHITE,
             letterSpacing: '-0.03em',
@@ -112,9 +112,9 @@ export default function Services() {
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '32px' }}>
                 <span style={{
-                  fontFamily: '"Syne", sans-serif',
+                  fontFamily: '"Cunia", sans-serif',
                   fontSize: '13px',
-                  fontWeight: 700,
+                  fontWeight: 400,
                   color: `${WHITE}25`,
                   letterSpacing: '0.06em',
                 }}>
@@ -122,8 +122,8 @@ export default function Services() {
                 </span>
               </div>
               <h3 style={{
-                fontFamily: '"Syne", sans-serif',
-                fontWeight: 700,
+                fontFamily: '"Cunia", sans-serif',
+                fontWeight: 400,
                 fontSize: '22px',
                 color: WHITE,
                 letterSpacing: '-0.01em',
@@ -133,8 +133,8 @@ export default function Services() {
                 {s.title}
               </h3>
               <p style={{
-                fontFamily: '"Outfit", sans-serif',
-                fontWeight: 300,
+                fontFamily: '"Montserrat", sans-serif',
+                fontWeight: 400,
                 fontSize: '14px',
                 color: `${WHITE}85`,
                 lineHeight: 1.7,
@@ -143,7 +143,7 @@ export default function Services() {
                 {s.desc}
               </p>
               <p style={{
-                fontFamily: '"Outfit", sans-serif',
+                fontFamily: '"Montserrat", sans-serif',
                 fontSize: '11px',
                 fontWeight: 400,
                 letterSpacing: '0.1em',
@@ -167,8 +167,8 @@ export default function Services() {
           gap: '24px',
         }}>
           <p style={{
-            fontFamily: '"Outfit", sans-serif',
-            fontWeight: 300,
+            fontFamily: '"Montserrat", sans-serif',
+            fontWeight: 400,
             fontSize: '15px',
             color: `${WHITE}55`,
             maxWidth: '480px',
@@ -181,7 +181,7 @@ export default function Services() {
           <a
             href="mailto:contact@prodyous.com"
             style={{
-              fontFamily: '"Outfit", sans-serif',
+              fontFamily: '"Montserrat", sans-serif',
               fontSize: '12px',
               fontWeight: 400,
               letterSpacing: '0.12em',
