@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 const NAVY = '#1B1F6B';
 const WHITE = '#FFFFFF';
 
-export default function Hero() {
+export default function Hero({ onStartProject }: { onStartProject: () => void }) {
   const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -61,23 +61,6 @@ export default function Hero() {
       >
         {/* Left — Text */}
         <div>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            style={{
-              fontFamily: '"Montserrat", sans-serif',
-              fontSize: '12px',
-              fontWeight: 400,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: `${WHITE}80`,
-              marginBottom: '28px',
-            }}
-          >
-            Filmmaker · Photographer · Morocco
-          </motion.p>
-
           <motion.h1
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
@@ -111,9 +94,9 @@ export default function Hero() {
               marginBottom: '48px',
             }}
           >
-            Youssef Tayibi — filmmaker and photographer based in Morocco.
-            Founder of ProdYous Visual Production Agency.
-            From concept to screen, we craft visuals that speak.
+            ProdYous is a visual production agency based in Morocco.
+            We create cinematic films, photography, and branded content —
+            from concept to screen, we craft visuals that speak.
           </motion.p>
 
           <motion.div
@@ -142,8 +125,8 @@ export default function Hero() {
             >
               View Work
             </a>
-            <a
-              href="mailto:contact@prodyous.com"
+            <button
+              onClick={onStartProject}
               style={{
                 fontFamily: '"Montserrat", sans-serif',
                 fontSize: '12px',
@@ -153,8 +136,8 @@ export default function Hero() {
                 color: WHITE,
                 backgroundColor: 'transparent',
                 padding: '16px 36px',
-                textDecoration: 'none',
                 border: `1px solid ${WHITE}40`,
+                cursor: 'pointer',
                 transition: 'border-color 0.2s ease',
                 display: 'inline-block',
               }}
@@ -162,7 +145,7 @@ export default function Hero() {
               onMouseLeave={e => (e.currentTarget.style.borderColor = `${WHITE}40`)}
             >
               Start a Project
-            </a>
+            </button>
           </motion.div>
 
           {/* Accounts */}
@@ -174,9 +157,9 @@ export default function Hero() {
             style={{ marginTop: '64px', display: 'flex', gap: '32px' }}
           >
             {[
-              { label: '2,440', sub: 'Followers' },
-              { label: '29', sub: 'Posts' },
-              { label: '100+', sub: 'Soutenances' },
+              { label: '+200', sub: 'Clients' },
+              { label: '5',    sub: 'Years' },
+              { label: '100+', sub: 'Projects' },
             ].map(s => (
               <div key={s.label}>
                 <p style={{ fontFamily: '"Cunia", sans-serif', fontWeight: 400, fontSize: '28px', color: WHITE, letterSpacing: '-0.02em', lineHeight: 1 }}>{s.label}</p>

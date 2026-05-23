@@ -11,7 +11,7 @@ const navLinks = [
   { name: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onStartProject }: { onStartProject: () => void }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -50,12 +50,10 @@ export default function Navbar() {
               src="/assets/images/logo.jpg"
               alt="ProdYous"
               style={{
-                width: '38px',
-                height: '38px',
-                borderRadius: '50%',
-                objectFit: 'cover',
-                border: `2px solid ${scrolled ? NAVY : WHITE}40`,
-                transition: 'border-color 0.4s ease',
+                height: '36px',
+                width: 'auto',
+                objectFit: 'contain',
+                display: 'block',
               }}
             />
             <span style={{
@@ -92,8 +90,8 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-            <a
-              href="mailto:contact@prodyous.com"
+            <button
+              onClick={onStartProject}
               style={{
                 fontFamily: '"Montserrat", sans-serif',
                 fontWeight: 400,
@@ -103,12 +101,13 @@ export default function Navbar() {
                 color: scrolled ? WHITE : NAVY,
                 backgroundColor: scrolled ? NAVY : WHITE,
                 padding: '11px 24px',
-                textDecoration: 'none',
+                border: 'none',
+                cursor: 'pointer',
                 transition: 'all 0.3s ease',
               }}
             >
               Start a Project
-            </a>
+            </button>
           </div>
 
           <button
