@@ -32,12 +32,16 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
         margin: '0 auto',
         padding: 'clamp(48px, 8vh, 120px) clamp(20px, 4vw, 60px)',
         width: '100%',
+        display: 'grid',
+        gridTemplateColumns: 'minmax(0, 1.05fr) minmax(0, 0.95fr)',
+        gap: 'clamp(40px, 6vw, 90px)',
+        alignItems: 'center',
         position: 'relative',
         zIndex: 1,
       }}
       className="hero-grid"
       >
-        <div style={{ maxWidth: '720px' }}>
+        <div className="hero-copy" style={{ maxWidth: '640px' }}>
           <motion.h1
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,6 +152,68 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
             ))}
           </motion.div>
         </div>
+
+        {/* Right — Portrait */}
+        <motion.div
+          initial={{ opacity: 0, x: 32 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="hero-portrait"
+        >
+          <div
+            style={{
+              position: 'relative',
+              aspectRatio: '4 / 5',
+              overflow: 'hidden',
+              boxShadow: '0 40px 80px -20px rgba(0,0,0,0.55)',
+            }}
+          >
+            <img
+              src="/assets/images/hero-portrait.jpg"
+              alt="Youssef Tayibi, filmmaker and photographer"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center 18%',
+                display: 'block',
+              }}
+            />
+            {/* Cinematic navy grade to ground the portrait in the brand palette */}
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              background: `linear-gradient(180deg, ${NAVY}00 60%, ${NAVY}55 100%), linear-gradient(0deg, ${NAVY}25 0%, transparent 30%)`,
+              mixBlendMode: 'multiply',
+              pointerEvents: 'none',
+            }} />
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              border: `1px solid ${WHITE}18`,
+              pointerEvents: 'none',
+            }} />
+          </div>
+
+          {/* Caption */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            marginTop: '20px',
+          }}>
+            <div style={{ width: '28px', height: '1px', backgroundColor: `${WHITE}40` }} />
+            <p style={{
+              fontFamily: '"Montserrat", sans-serif',
+              fontSize: '11px',
+              color: `${WHITE}70`,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+            }}>
+              Youssef Tayibi — Founder, ProdYous
+            </p>
+          </div>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
@@ -171,6 +237,16 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
       </div>
 
       <style>{`
+        @media (max-width: 900px) {
+          .hero-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .hero-portrait {
+            max-width: 420px;
+            margin: 0 auto;
+            width: 100%;
+          }
+        }
         @media (max-width: 768px) {
           .hero-section {
             min-height: auto !important;
@@ -178,7 +254,8 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
           }
           .hero-grid {
             padding-top: 88px !important;
-            padding-bottom: 88px !important;
+            padding-bottom: 48px !important;
+            gap: 40px !important;
           }
           .hero-stats {
             margin-top: 52px !important;
