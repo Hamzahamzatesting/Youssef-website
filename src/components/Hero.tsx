@@ -33,9 +33,9 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
         padding: 'clamp(48px, 8vh, 120px) clamp(20px, 4vw, 60px)',
         width: '100%',
         display: 'grid',
-        gridTemplateColumns: 'minmax(0, 1.05fr) minmax(0, 0.95fr)',
-        gap: 'clamp(40px, 6vw, 90px)',
-        alignItems: 'center',
+        gridTemplateColumns: 'minmax(0, 1.6fr) minmax(0, 0.6fr)',
+        gap: 'clamp(24px, 4vw, 56px)',
+        alignItems: 'end',
         position: 'relative',
         zIndex: 1,
       }}
@@ -153,66 +153,26 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
           </motion.div>
         </div>
 
-        {/* Right — Portrait */}
+        {/* Right — Portrait cutout */}
         <motion.div
-          initial={{ opacity: 0, x: 32 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
           className="hero-portrait"
+          style={{ justifySelf: 'end' }}
         >
-          <div
+          <img
+            src="/assets/images/hero-portrait-cutout.png"
+            alt="Youssef Tayibi, filmmaker and photographer"
             style={{
-              position: 'relative',
-              aspectRatio: '4 / 5',
-              overflow: 'hidden',
-              boxShadow: '0 40px 80px -20px rgba(0,0,0,0.55)',
+              display: 'block',
+              width: 'auto',
+              height: 'clamp(240px, 38vh, 400px)',
+              maxWidth: '100%',
+              objectFit: 'contain',
+              filter: 'drop-shadow(0 24px 32px rgba(0,0,0,0.45))',
             }}
-          >
-            <img
-              src="/assets/images/hero-portrait.jpg"
-              alt="Youssef Tayibi, filmmaker and photographer"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'center 18%',
-                display: 'block',
-              }}
-            />
-            {/* Cinematic navy grade to ground the portrait in the brand palette */}
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              background: `linear-gradient(180deg, ${NAVY}00 60%, ${NAVY}55 100%), linear-gradient(0deg, ${NAVY}25 0%, transparent 30%)`,
-              mixBlendMode: 'multiply',
-              pointerEvents: 'none',
-            }} />
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              border: `1px solid ${WHITE}18`,
-              pointerEvents: 'none',
-            }} />
-          </div>
-
-          {/* Caption */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            marginTop: '20px',
-          }}>
-            <div style={{ width: '28px', height: '1px', backgroundColor: `${WHITE}40` }} />
-            <p style={{
-              fontFamily: '"Montserrat", sans-serif',
-              fontSize: '11px',
-              color: `${WHITE}70`,
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-            }}>
-              Youssef Tayibi — Founder, ProdYous
-            </p>
-          </div>
+          />
         </motion.div>
       </div>
 
@@ -242,9 +202,10 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
             grid-template-columns: 1fr !important;
           }
           .hero-portrait {
-            max-width: 420px;
-            margin: 0 auto;
-            width: 100%;
+            justify-self: center !important;
+          }
+          .hero-portrait img {
+            height: clamp(200px, 32vh, 300px) !important;
           }
         }
         @media (max-width: 768px) {
@@ -255,7 +216,7 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
           .hero-grid {
             padding-top: 88px !important;
             padding-bottom: 48px !important;
-            gap: 40px !important;
+            gap: 24px !important;
           }
           .hero-stats {
             margin-top: 52px !important;
