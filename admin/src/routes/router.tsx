@@ -13,24 +13,30 @@ import { ContactManager } from "@/routes/contact/ContactManager";
 import { SEOManager } from "@/routes/seo/SEOManager";
 import { SettingsManager } from "@/routes/settings/SettingsManager";
 
-export const router = createBrowserRouter([
-  { path: "/login", element: <LoginPage /> },
-  {
-    path: "/",
-    element: <ProtectedLayout />,
-    children: [
-      { index: true, element: <DashboardPage /> },
-      { path: "media", element: <MediaLibraryPage /> },
-      { path: "portfolio", element: <PortfolioListPage /> },
-      { path: "portfolio/new", element: <PortfolioEditorPage /> },
-      { path: "portfolio/:id", element: <PortfolioEditorPage /> },
-      { path: "homepage", element: <HomepageManagerPage /> },
-      { path: "services", element: <ServicesPage /> },
-      { path: "testimonials", element: <TestimonialsPage /> },
-      { path: "about", element: <AboutPageManager /> },
-      { path: "contact", element: <ContactManager /> },
-      { path: "seo", element: <SEOManager /> },
-      { path: "settings", element: <SettingsManager /> },
-    ],
-  },
-]);
+export const router = createBrowserRouter(
+  [
+    { path: "/login", element: <LoginPage /> },
+    {
+      path: "/",
+      element: <ProtectedLayout />,
+      children: [
+        { index: true, element: <DashboardPage /> },
+        { path: "media", element: <MediaLibraryPage /> },
+        { path: "portfolio", element: <PortfolioListPage /> },
+        { path: "portfolio/new", element: <PortfolioEditorPage /> },
+        { path: "portfolio/:id", element: <PortfolioEditorPage /> },
+        { path: "homepage", element: <HomepageManagerPage /> },
+        { path: "services", element: <ServicesPage /> },
+        { path: "testimonials", element: <TestimonialsPage /> },
+        { path: "about", element: <AboutPageManager /> },
+        { path: "contact", element: <ContactManager /> },
+        { path: "seo", element: <SEOManager /> },
+        { path: "settings", element: <SettingsManager /> },
+      ],
+    },
+  ],
+  // In production this app is served at yoursite.com/admin (same Vercel
+  // project as the public site); in local dev it runs standalone at the
+  // root of its own port, so no basename is needed there.
+  { basename: import.meta.env.PROD ? "/admin" : "/" }
+);
