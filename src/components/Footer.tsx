@@ -38,9 +38,9 @@ export default function Footer() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
               <img
-                src="/assets/images/logo.jpg"
+                src="/assets/images/logo-white.png"
                 alt="ProdYous"
-                style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover', border: `2px solid ${WHITE}15` }}
+                style={{ width: '44px', height: '44px', objectFit: 'contain' }}
               />
               <span style={{
                 fontFamily: '"Cunia", sans-serif',

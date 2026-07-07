@@ -210,13 +210,13 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
               height: '55%',
               overflow: 'hidden',
               border: `3px solid ${NAVY}`,
+              backgroundColor: NAVY,
             }}>
               <img
                 src="/assets/images/work-1.jpg"
                 alt="Wedding film by ProdYous"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
               />
-              <div style={{ position: 'absolute', inset: 0, backgroundColor: `${NAVY}20` }} />
             </div>
 
             <div style={{

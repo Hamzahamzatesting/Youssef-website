@@ -47,7 +47,7 @@ export default function Navbar({ onStartProject }: { onStartProject: () => void 
         }}>
           <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
             <img
-              src="/assets/images/logo.jpg"
+              src={scrolled ? '/assets/images/logo-navy.png' : '/assets/images/logo-white.png'}
               alt="ProdYous"
               style={{
                 height: '36px',
