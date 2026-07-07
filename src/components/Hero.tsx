@@ -1,27 +1,9 @@
-import { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 
 const NAVY = '#1B1F6B';
 const WHITE = '#FFFFFF';
 
 export default function Hero({ onStartProject }: { onStartProject: () => void }) {
-  const imgRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let rafId = 0;
-    const onMove = (e: MouseEvent) => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        if (!imgRef.current) return;
-        const x = (e.clientX / window.innerWidth - 0.5) * 12;
-        const y = (e.clientY / window.innerHeight - 0.5) * 12;
-        imgRef.current.style.transform = `translate(${x}px, ${y}px)`;
-      });
-    };
-    window.addEventListener('mousemove', onMove, { passive: true });
-    return () => { window.removeEventListener('mousemove', onMove); cancelAnimationFrame(rafId); };
-  }, []);
-
   return (
     <section
       id="hero"
@@ -50,17 +32,12 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
         margin: '0 auto',
         padding: 'clamp(48px, 8vh, 120px) clamp(20px, 4vw, 60px)',
         width: '100%',
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '60px',
-        alignItems: 'center',
         position: 'relative',
         zIndex: 1,
       }}
       className="hero-grid"
       >
-        {/* Left — Text */}
-        <div>
+        <div style={{ maxWidth: '720px' }}>
           <motion.h1
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
@@ -90,7 +67,7 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
               fontSize: '15px',
               lineHeight: 1.7,
               color: `${WHITE}90`,
-              maxWidth: '420px',
+              maxWidth: '480px',
               marginBottom: '48px',
             }}
           >
@@ -154,128 +131,23 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="hero-stats"
-            style={{ marginTop: '64px', display: 'flex', gap: '32px' }}
+            style={{ marginTop: '64px', display: 'flex', gap: 'clamp(28px, 4vw, 56px)' }}
           >
             {[
               { label: '+200', sub: 'Clients' },
               { label: '5',    sub: 'Years' },
               { label: '100+', sub: 'Projects' },
-            ].map(s => (
-              <div key={s.label}>
-                <p style={{ fontFamily: '"Cunia", sans-serif', fontWeight: 400, fontSize: '28px', color: WHITE, letterSpacing: '-0.02em', lineHeight: 1 }}>{s.label}</p>
-                <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '11px', color: `${WHITE}70`, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '6px' }}>{s.sub}</p>
+            ].map((s, i) => (
+              <div
+                key={s.label}
+                style={i > 0 ? { paddingLeft: 'clamp(28px, 4vw, 56px)', borderLeft: `1px solid ${WHITE}25` } : undefined}
+              >
+                <p style={{ fontFamily: '"Cunia", sans-serif', fontWeight: 400, fontSize: 'clamp(40px, 5vw, 64px)', color: WHITE, letterSpacing: '-0.03em', lineHeight: 1 }}>{s.label}</p>
+                <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '13px', fontWeight: 400, color: `${WHITE}80`, letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '10px' }}>{s.sub}</p>
               </div>
             ))}
           </motion.div>
         </div>
-
-        {/* Right — Image mosaic */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="hero-visual"
-          style={{ position: 'relative', height: 'clamp(480px, 70vh, 720px)' }}
-        >
-          {/* Large portrait */}
-          <div
-            ref={imgRef}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              transition: 'transform 0.15s ease-out',
-            }}
-          >
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              left: '5%',
-              width: '65%',
-              height: '80%',
-              overflow: 'hidden',
-            }}>
-              <img
-                src="/assets/images/work-10.jpg"
-                alt="Cinematic work by Youssef Tayibi"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
-              />
-              <div style={{ position: 'absolute', inset: 0, backgroundColor: `${NAVY}30` }} />
-            </div>
-
-            <div style={{
-              position: 'absolute',
-              bottom: '0',
-              right: '0',
-              width: '48%',
-              height: '55%',
-              overflow: 'hidden',
-              border: `3px solid ${NAVY}`,
-              backgroundColor: NAVY,
-            }}>
-              <img
-                src="/assets/images/work-1.jpg"
-                alt="Wedding film by ProdYous"
-                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-              />
-            </div>
-
-            <div style={{
-              position: 'absolute',
-              bottom: '5%',
-              left: 0,
-              width: '30%',
-              height: '30%',
-              overflow: 'hidden',
-              border: `2px solid ${WHITE}20`,
-            }}>
-              <img
-                src="/assets/images/work-4.jpg"
-                alt="Corporate event coverage"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-            </div>
-          </div>
-
-          {/* Profile badge */}
-          <div style={{
-            position: 'absolute',
-            top: '24px',
-            right: '0',
-            backgroundColor: WHITE,
-            padding: '16px 20px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            zIndex: 2,
-          }}
-          className="hero-profile-badge"
-          >
-            <img
-              src="/assets/images/youssef-profile.jpg"
-              alt="Youssef Tayibi"
-              style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover' }}
-            />
-            <div>
-              <p style={{ fontFamily: '"Cunia", sans-serif', fontWeight: 400, fontSize: '13px', color: NAVY, lineHeight: 1 }}>@youssef_tayibi</p>
-              <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '11px', color: `${NAVY}80`, marginTop: '3px', letterSpacing: '0.06em' }}>Instagram</p>
-            </div>
-          </div>
-
-          {/* Agency tag */}
-          <div style={{
-            position: 'absolute',
-            bottom: '28%',
-            left: '32%',
-            backgroundColor: NAVY,
-            border: `1px solid ${WHITE}20`,
-            padding: '10px 16px',
-            zIndex: 2,
-          }}
-          className="hero-agency-tag"
-          >
-            <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: '11px', color: WHITE, letterSpacing: '0.12em', textTransform: 'uppercase' }}>@prodyous.ma</p>
-          </div>
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}
@@ -305,27 +177,12 @@ export default function Hero({ onStartProject }: { onStartProject: () => void })
             padding-top: 80px !important;
           }
           .hero-grid {
-            grid-template-columns: 1fr !important;
-            gap: 48px !important;
             padding-top: 88px !important;
             padding-bottom: 88px !important;
           }
           .hero-stats {
             margin-top: 52px !important;
             gap: 26px !important;
-          }
-          .hero-visual {
-            height: 440px !important;
-            max-width: 360px;
-            margin: 0 auto;
-            width: 100%;
-          }
-          .hero-profile-badge {
-            right: 0 !important;
-            max-width: calc(100vw - 52px);
-          }
-          .hero-agency-tag {
-            left: 24% !important;
           }
         }
       `}</style>
